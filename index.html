@@ -189,10 +189,11 @@ section[id]{scroll-margin-top:100px}
 </div>
 <div class="example-card">
 <div class="progress"><span id="quoteProgress"></span></div>
-<form action="https://formsubmit.co/hola@aerendatravel.com" id="quoteForm" method="POST">
+<form action="https://formsubmit.co/ajax/hola@aerendatravel.com" id="quoteForm" method="POST">
 <input name="_subject" type="hidden" value="Nueva solicitud Aerenda Placer"/>
 <input name="_template" type="hidden" value="table"/>
 <input name="_captcha" type="hidden" value="false"/>
+<input name="_url" type="hidden" value="https://aerendatravel.com/"/>
 <input name="_next" type="hidden" value="https://aerendatravel.com/?enviado=placer"/>
 <input name="_honey" type="text" style="display:none"/>
 <section class="step">
@@ -338,10 +339,11 @@ section[id]{scroll-margin-top:100px}
 </div>
 <p>Cuéntanos lo esencial. Un asesor Aerenda revisará la información y te contactará para conversar sobre qué podemos hacer.</p>
 </div>
-<form action="https://formsubmit.co/corporativo@aerendatravel.com" class="example-card" id="b2bForm" method="POST">
+<form action="https://formsubmit.co/ajax/corporativo@aerendatravel.com" class="example-card" id="b2bForm" method="POST">
 <input name="_subject" type="hidden" value="Nueva solicitud Aerenda Negocios"/>
 <input name="_template" type="hidden" value="table"/>
 <input name="_captcha" type="hidden" value="false"/>
+<input name="_url" type="hidden" value="https://aerendatravel.com/"/>
 <input name="_next" type="hidden" value="https://aerendatravel.com/?enviado=negocios"/>
 <input name="_honey" type="text" style="display:none"/>
 <div class="form-row">
@@ -465,23 +467,107 @@ section[id]{scroll-margin-top:100px}
 
   showStep(1, false);
 
-  const params = new URLSearchParams(window.location.search);
-  const enviado = params.get('enviado');
   const success = document.getElementById('formSuccess');
 
-  if (success && (enviado === 'placer' || enviado === 'negocios')) {
-    success.textContent = enviado === 'placer'
-      ? 'Gracias. Recibimos tu solicitud de viaje. Un asesor Aerenda la revisará y te contactará.'
-      : 'Gracias. Recibimos la información de tu empresa. Un asesor Aerenda la revisará y te contactará.';
+  function showMessage(message, isError=false) {
+    if (!success) return;
+    success.textContent = message;
     success.style.display = 'block';
+    success.style.opacity = '1';
+    success.style.transition = 'opacity .35s ease';
+    success.style.background = isError ? '#7A1F1F' : '#0E2A47';
 
-    history.replaceState(null, document.title, window.location.pathname);
-
-    setTimeout(() => {
+    clearTimeout(window.__aerendaMessageTimer);
+    window.__aerendaMessageTimer = setTimeout(() => {
       success.style.opacity = '0';
-      success.style.transition = 'opacity .35s ease';
       setTimeout(() => success.style.display = 'none', 350);
-    }, 6500);
+    }, 7000);
+  }
+
+  async function submitAerendaForm(form, targetEmail, successMessage) {
+    if (!form.reportValidity()) {
+      showMessage('Revisa los campos obligatorios antes de enviar.', true);
+      return;
+    }
+
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalText = submitButton ? submitButton.textContent : '';
+
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = 'Enviando…';
+    }
+
+    const payload = {};
+    new FormData(form).forEach((value, key) => {
+      if (key !== '_next') payload[key] = value;
+    });
+
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${targetEmail}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok || data.success === false) {
+        throw new Error(data.message || 'No fue posible enviar la solicitud.');
+      }
+
+      form.reset();
+      form.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+
+      if (form.id === 'quoteForm') {
+        document.getElementById('tipo_viaje').value = '';
+        document.getElementById('destino_conocido').value = '';
+        document.getElementById('experiencia').value = '';
+        const known = document.getElementById('knownDestination');
+        if (known) known.style.display = 'none';
+        showStep(1, false);
+      }
+
+      showMessage(successMessage);
+    } catch (error) {
+      console.error(error);
+      showMessage(
+        'No pudimos enviar la solicitud. Intenta nuevamente en unos segundos o escríbenos directamente por correo.',
+        true
+      );
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
+      }
+    }
+  }
+
+  const quoteForm = document.getElementById('quoteForm');
+  if (quoteForm) {
+    quoteForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      submitAerendaForm(
+        quoteForm,
+        'hola@aerendatravel.com',
+        'Gracias. Recibimos tu solicitud de viaje. Un asesor Aerenda la revisará y te contactará.'
+      );
+    });
+  }
+
+  const b2bForm = document.getElementById('b2bForm');
+  if (b2bForm) {
+    b2bForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      submitAerendaForm(
+        b2bForm,
+        'corporativo@aerendatravel.com',
+        'Gracias. Recibimos la información de tu empresa. Un asesor Aerenda la revisará y te contactará.'
+      );
+    });
   }
 })();
 </script>
