@@ -134,8 +134,7 @@ section[id]{scroll-margin-top:100px}
 <h1>El viaje que <span class="accent">querías vivir.</span></h1>
 <p style="font-size:1.08rem;color:#69798a;margin:25px 0 30px">Paquetes para familias, parejas, amigos y grupos que quieren descubrir más, disfrutar mejor y volver con una historia que contar.</p>
 <div style="display:flex;gap:12px;flex-wrap:wrap">
-<a class="btn btn-primary" href="#cotizador">Diseña tu viaje →</a>
-<a class="btn btn-dark" href="#cotizador">Cotiza en 2 minutos →</a>
+<a class="btn btn-primary" href="#cotizador" data-scroll-target="cotizador">Cotiza en 2 minutos →</a>
 </div>
 </div>
 <div class="hero-art" style="min-height:520px">
@@ -189,8 +188,9 @@ section[id]{scroll-margin-top:100px}
 </div>
 <div class="example-card">
 <div class="progress"><span id="quoteProgress"></span></div>
-<form action="https://formsubmit.co/ajax/hola@aerendatravel.com" id="quoteForm" method="POST">
+<form action="https://formsubmit.co/hola@aerendatravel.com" id="quoteForm" method="POST" novalidate>
 <input name="_subject" type="hidden" value="Nueva solicitud Aerenda Placer"/>
+<input name="origen_formulario" type="hidden" value="Aerenda Travel Placer"/>
 <input name="_template" type="hidden" value="table"/>
 <input name="_captcha" type="hidden" value="false"/>
 <input name="_url" type="hidden" value="https://aerendatravel.com/"/>
@@ -254,12 +254,12 @@ section[id]{scroll-margin-top:100px}
 <h2 style="font-size:2.4rem;margin:10px 0 14px">Tus datos</h2>
 <p style="color:#69798a">Ya tenemos lo esencial de tu viaje. Con esta información podemos preparar una primera orientación para ti.</p>
 <label>¿Cómo te llamamos?</label>
-<input name="nombre" required=""/>
+<input name="nombre" required="" autocomplete="name"/>
 <div class="form-row">
-<div><label>Email</label><input name="email" required="" type="email"/></div>
-<div><label>WhatsApp</label><input name="whatsapp" required=""/></div>
+<div><label>Email</label><input name="email" required="" type="email" autocomplete="email"/></div>
+<div><label>WhatsApp</label><input name="whatsapp" required="" autocomplete="tel"/></div>
 </div>
-<label style="font-weight:500"><input required="" style="width:auto;margin-right:8px" type="checkbox"/>Autorizo a Aerenda Travel a contactarme para continuar con mi solicitud de cotización.</label>
+<label style="font-weight:500"><input name="autorizacion_contacto" required="" style="width:auto;margin-right:8px" type="checkbox" value="Sí"/>Autorizo a Aerenda Travel a contactarme para continuar con mi solicitud de cotización.</label>
 <div class="form-actions">
 <button class="btn" data-prev="" type="button">← Atrás</button>
 <button class="btn btn-primary" type="submit">Solicitar mi cotización →</button>
@@ -277,7 +277,7 @@ section[id]{scroll-margin-top:100px}
 <h1>Tu empresa viaja. <span class="accent">Sus costos pueden ser más previsibles.</span></h1>
 <p>Ayudamos a las PYMES a convertir sus viajes frecuentes en paquetes estandarizados, con mayor previsión, procesos más rápidos y costos más fáciles de manejar.</p>
 <div style="display:flex;gap:12px;flex-wrap:wrap">
-<a class="btn btn-primary" href="#formulario-b2b">Analizar mis viajes →</a>
+<a class="btn btn-primary" href="#formulario-b2b" data-scroll-target="formulario-b2b">Analizar mis viajes →</a>
 <a class="btn btn-outline" href="#solucion">Conocer cómo funciona →</a>
 </div>
 </div>
@@ -339,8 +339,9 @@ section[id]{scroll-margin-top:100px}
 </div>
 <p>Cuéntanos lo esencial. Un asesor Aerenda revisará la información y te contactará para conversar sobre qué podemos hacer.</p>
 </div>
-<form action="https://formsubmit.co/ajax/corporativo@aerendatravel.com" class="example-card" id="b2bForm" method="POST">
+<form action="https://formsubmit.co/corporativo@aerendatravel.com" class="example-card" id="b2bForm" method="POST" novalidate>
 <input name="_subject" type="hidden" value="Nueva solicitud Aerenda Negocios"/>
+<input name="origen_formulario" type="hidden" value="Aerenda Travel Negocios"/>
 <input name="_template" type="hidden" value="table"/>
 <input name="_captcha" type="hidden" value="false"/>
 <input name="_url" type="hidden" value="https://aerendatravel.com/"/>
@@ -348,11 +349,11 @@ section[id]{scroll-margin-top:100px}
 <input name="_honey" type="text" style="display:none"/>
 <div class="form-row">
 <div><label>Empresa *</label><input name="empresa" required=""/></div>
-<div><label>Nombre *</label><input name="nombre" required=""/></div>
+<div><label>Nombre *</label><input name="nombre" required="" autocomplete="name"/></div>
 </div>
 <div class="form-row">
-<div><label>Correo corporativo *</label><input name="email" required="" type="email"/></div>
-<div><label>Teléfono / WhatsApp *</label><input name="telefono" required=""/></div>
+<div><label>Correo corporativo *</label><input name="email" required="" type="email" autocomplete="email"/></div>
+<div><label>Teléfono / WhatsApp *</label><input name="telefono" required="" autocomplete="tel"/></div>
 </div>
 <div class="form-row">
 <div>
@@ -376,7 +377,7 @@ section[id]{scroll-margin-top:100px}
 <div class="route-grid"><input name="ruta3_origen" placeholder="Ruta 3 · Origen"/><input name="ruta3_destino" placeholder="Ruta 3 · Destino"/></div>
 <label>¿Hay algo más que debamos conocer sobre sus viajes?</label>
 <textarea name="comentarios"></textarea>
-<label style="font-weight:500"><input required="" style="width:auto;margin-right:8px" type="checkbox"/>Autorizo a Aerenda Travel a contactarme para dar seguimiento a esta solicitud.</label>
+<label style="font-weight:500"><input name="autorizacion_contacto" required="" style="width:auto;margin-right:8px" type="checkbox" value="Sí"/>Autorizo a Aerenda Travel a contactarme para dar seguimiento a esta solicitud.</label>
 <div class="form-actions"><span></span><button class="btn btn-primary" type="submit">Analizar mis viajes →</button></div>
 </form>
 <p style="margin-top:20px"><strong>corporativo@aerendatravel.com</strong></p>
@@ -419,7 +420,7 @@ section[id]{scroll-margin-top:100px}
   left:50%;
   bottom:28px;
   transform:translateX(-50%);
-  z-index:9999;
+  z-index:2147483647;
   max-width:calc(100% - 32px);
   background:#0E2A47;
   color:#fff;
@@ -443,12 +444,75 @@ section[id]{scroll-margin-top:100px}
     current=n;
     steps.forEach((s,i)=>s.classList.toggle('active',i===n-1));
     if(bar) bar.style.width=((n/3)*100)+'%';
+
     if(shouldScroll){
-      document.getElementById('cotizador').scrollIntoView({behavior:'smooth',block:'start'});
+      const form = document.getElementById('quoteForm');
+      if(form){
+        const headerOffset = 105;
+        const targetY = form.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: Math.max(0, targetY),
+          behavior: 'smooth'
+        });
+      }
     }
   }
 
-  document.querySelectorAll('#quoteForm [data-next]').forEach(b=>b.addEventListener('click',()=>showStep(Math.min(3,current+1), true)));
+  function fieldLabel(field){
+    const label = field.closest('div')?.querySelector('label') || field.previousElementSibling;
+    return label && label.tagName === 'LABEL'
+      ? label.textContent.replace('*','').trim()
+      : (field.name || 'este campo');
+  }
+
+  function validateStep(stepNumber){
+    const step = steps[stepNumber - 1];
+    if(!step) return true;
+
+    // Special validation for the visual option selectors backed by hidden inputs.
+    if(stepNumber === 1){
+      const tipo = document.getElementById('tipo_viaje');
+      const destinoConocido = document.getElementById('destino_conocido');
+
+      if(!tipo.value){
+        showMessage('Selecciona si tu viaje será nacional o internacional.', true);
+        return false;
+      }
+      if(!destinoConocido.value){
+        showMessage('Indica si ya tienes un destino o quieres escuchar opciones.', true);
+        return false;
+      }
+    }
+
+    const requiredFields = [...step.querySelectorAll('[required]')].filter(field => field.type !== 'hidden');
+
+    for(const field of requiredFields){
+      if(field.type === 'checkbox'){
+        if(!field.checked){
+          showMessage('Necesitamos tu autorización para poder contactarte.', true);
+          field.focus();
+          return false;
+        }
+      } else if(!field.value.trim()){
+        showMessage(`Completa ${fieldLabel(field)} para continuar.`, true);
+        field.focus();
+        return false;
+      } else if(field.type === 'email' && !field.validity.valid){
+        showMessage('Escribe un correo electrónico válido.', true);
+        field.focus();
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  document.querySelectorAll('#quoteForm [data-next]').forEach(b=>b.addEventListener('click',()=>{
+    if(validateStep(current)){
+      showStep(Math.min(3,current+1), true);
+    }
+  }));
+
   document.querySelectorAll('#quoteForm [data-prev]').forEach(b=>b.addEventListener('click',()=>showStep(Math.max(1,current-1), true)));
 
   document.querySelectorAll('#quoteForm .option').forEach(o=>o.addEventListener('click',()=>{
@@ -484,9 +548,38 @@ section[id]{scroll-margin-top:100px}
     }, 7000);
   }
 
+  function validateB2BForm(form){
+    const requiredFields = [...form.querySelectorAll('[required]')].filter(field => field.type !== 'hidden');
+
+    for(const field of requiredFields){
+      if(field.type === 'checkbox'){
+        if(!field.checked){
+          showMessage('Necesitamos tu autorización para poder contactarte.', true);
+          field.focus();
+          return false;
+        }
+      } else if(!field.value.trim()){
+        showMessage(`Completa ${fieldLabel(field)} para enviar la solicitud.`, true);
+        field.focus();
+        return false;
+      } else if(field.type === 'email' && !field.validity.valid){
+        showMessage('Escribe un correo electrónico válido.', true);
+        field.focus();
+        return false;
+      }
+    }
+    return true;
+  }
+
   async function submitAerendaForm(form, targetEmail, successMessage) {
-    if (!form.reportValidity()) {
-      showMessage('Revisa los campos obligatorios antes de enviar.', true);
+    if(form.id === 'quoteForm'){
+      for(let i = 1; i <= 3; i++){
+        if(!validateStep(i)){
+          showStep(i, true);
+          return;
+        }
+      }
+    } else if(!validateB2BForm(form)){
       return;
     }
 
@@ -545,6 +638,26 @@ section[id]{scroll-margin-top:100px}
       }
     }
   }
+
+  document.querySelectorAll('[data-scroll-target]').forEach(link => {
+    link.addEventListener('click', (event) => {
+      const targetId = link.getAttribute('data-scroll-target');
+      const target = document.getElementById(targetId);
+      if (!target) return;
+
+      event.preventDefault();
+
+      const headerOffset = 92;
+      const targetY = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: Math.max(0, targetY),
+        behavior: 'smooth'
+      });
+
+      history.replaceState(null, document.title, '#' + targetId);
+    });
+  });
 
   const quoteForm = document.getElementById('quoteForm');
   if (quoteForm) {
