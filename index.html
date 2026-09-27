@@ -190,9 +190,11 @@ section[id]{scroll-margin-top:100px}
 <div class="example-card">
 <div class="progress"><span id="quoteProgress"></span></div>
 <form action="https://formsubmit.co/hola@aerendatravel.com" id="quoteForm" method="POST">
-<input name="_subject" type="hidden" value="Nueva solicitud de cotización - Aerenda Travel"/>
+<input name="_subject" type="hidden" value="Nueva solicitud Aerenda Placer"/>
 <input name="_template" type="hidden" value="table"/>
 <input name="_captcha" type="hidden" value="false"/>
+<input name="_next" type="hidden" value="https://aerendatravel.com/?enviado=placer"/>
+<input name="_honey" type="text" style="display:none"/>
 <section class="step">
 <div class="kicker">Paso 1 de 3</div>
 <h2 style="font-size:2.4rem;margin:10px 0 28px">Tu viaje</h2>
@@ -337,15 +339,17 @@ section[id]{scroll-margin-top:100px}
 <p>Cuéntanos lo esencial. Un asesor Aerenda revisará la información y te contactará para conversar sobre qué podemos hacer.</p>
 </div>
 <form action="https://formsubmit.co/corporativo@aerendatravel.com" class="example-card" id="b2bForm" method="POST">
-<input name="_subject" type="hidden" value="Nuevo prospecto B2B - Aerenda Travel"/>
+<input name="_subject" type="hidden" value="Nueva solicitud Aerenda Negocios"/>
 <input name="_template" type="hidden" value="table"/>
 <input name="_captcha" type="hidden" value="false"/>
+<input name="_next" type="hidden" value="https://aerendatravel.com/?enviado=negocios"/>
+<input name="_honey" type="text" style="display:none"/>
 <div class="form-row">
 <div><label>Empresa *</label><input name="empresa" required=""/></div>
 <div><label>Nombre *</label><input name="nombre" required=""/></div>
 </div>
 <div class="form-row">
-<div><label>Correo corporativo *</label><input name="correo" required="" type="email"/></div>
+<div><label>Correo corporativo *</label><input name="email" required="" type="email"/></div>
 <div><label>Teléfono / WhatsApp *</label><input name="telefono" required=""/></div>
 </div>
 <div class="form-row">
@@ -406,6 +410,27 @@ section[id]{scroll-margin-top:100px}
 <div class="subfooter"><span>© 2026 Aerenda Travel</span><span>Viajes que te llevan más lejos.</span></div>
 </div>
 </footer>
+
+<div id="formSuccess" role="status" aria-live="polite" style="
+  display:none;
+  position:fixed;
+  left:50%;
+  bottom:28px;
+  transform:translateX(-50%);
+  z-index:9999;
+  max-width:calc(100% - 32px);
+  background:#0E2A47;
+  color:#fff;
+  border:1px solid #C9A96B;
+  border-radius:10px;
+  padding:16px 22px;
+  box-shadow:0 12px 30px rgba(0,0,0,.18);
+  font-family:Montserrat,Arial,sans-serif;
+  font-size:14px;
+  line-height:1.45;
+  text-align:center;
+"></div>
+
 <script>
 (function(){
   let current=1;
@@ -439,6 +464,25 @@ section[id]{scroll-margin-top:100px}
   }));
 
   showStep(1, false);
+
+  const params = new URLSearchParams(window.location.search);
+  const enviado = params.get('enviado');
+  const success = document.getElementById('formSuccess');
+
+  if (success && (enviado === 'placer' || enviado === 'negocios')) {
+    success.textContent = enviado === 'placer'
+      ? 'Gracias. Recibimos tu solicitud de viaje. Un asesor Aerenda la revisará y te contactará.'
+      : 'Gracias. Recibimos la información de tu empresa. Un asesor Aerenda la revisará y te contactará.';
+    success.style.display = 'block';
+
+    history.replaceState(null, document.title, window.location.pathname);
+
+    setTimeout(() => {
+      success.style.opacity = '0';
+      success.style.transition = 'opacity .35s ease';
+      setTimeout(() => success.style.display = 'none', 350);
+    }, 6500);
+  }
 })();
 </script>
 </body>
