@@ -2,6 +2,39 @@
 
 <html lang="es">
 <head>
+
+<script>
+(function () {
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  if (window.location.hash) {
+    history.replaceState(null, document.title, window.location.pathname + window.location.search);
+  }
+
+  function forceTop() {
+    document.documentElement.style.scrollBehavior = 'auto';
+    if (document.body) document.body.style.scrollBehavior = 'auto';
+    window.scrollTo(0, 0);
+  }
+
+  forceTop();
+
+  document.addEventListener('DOMContentLoaded', forceTop, { once: true });
+
+  window.addEventListener('load', function () {
+    forceTop();
+    setTimeout(forceTop, 50);
+    setTimeout(forceTop, 250);
+    setTimeout(function () {
+      document.documentElement.style.scrollBehavior = '';
+      if (document.body) document.body.style.scrollBehavior = '';
+    }, 350);
+  }, { once: true });
+})();
+</script>
+
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Aerenda Travel | Viajes que te llevan más lejos</title>
@@ -405,17 +438,7 @@ section[id]{scroll-margin-top:100px}
     }
   }));
 
-  if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-  }
-
   showStep(1, false);
-
-  window.addEventListener('pageshow', () => {
-    if (!window.location.hash || window.location.hash === '#inicio') {
-      window.scrollTo(0, 0);
-    }
-  });
 })();
 </script>
 </body>
