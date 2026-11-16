@@ -3,99 +3,94 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Cotizador | Aerenda Travel</title>
 <style>
-:root {
-  --navy:#0E2A47;
-  --blue:#183B5B;
-  --gold:#C9A96B;
-  --ivory:#FAF8F3;
-  --gray:#D9D9D6;
+:root{
+  --navy:#0E2A47;--blue:#183B5B;--gold:#C9A96B;
+  --ivory:#FAF8F3;--gray:#D9D9D6;
 }
 *{box-sizing:border-box}
-body{
-  margin:0;background:var(--ivory);
-  color:var(--navy);font-family:Arial,sans-serif;
-}
-header{
-  background:var(--navy);color:white;
-  padding:22px 5%;display:flex;
-  align-items:center;gap:22px;
-}
-header img{width:90px;max-height:85px;object-fit:contain}
+body{margin:0;background:var(--ivory);color:var(--navy);
+  font-family:Montserrat,Arial,sans-serif}
+header{background:var(--navy);color:white;padding:20px 5%;
+  display:flex;align-items:center;gap:22px}
+header img{width:90px;height:90px;object-fit:contain}
 header h1{margin:0;font-size:25px}
-header p{margin:7px 0 0;color:#e4d5b8}
+header p{margin:8px 0;color:#e4d5b8}
 main{max-width:1100px;margin:30px auto;padding:0 18px}
-section{
-  background:white;border:1px solid #e6e1d8;
-  border-radius:12px;padding:26px;margin-bottom:24px;
-}
-h2{font-size:21px;margin-top:0;border-bottom:2px solid var(--gold);padding-bottom:12px}
-h3{color:var(--blue)}
+section{background:white;border:1px solid #e6e1d8;
+  border-radius:12px;padding:26px;margin-bottom:24px}
+h2{font-size:21px;margin:0 0 20px;
+  border-bottom:2px solid var(--gold);padding-bottom:12px}
+h3{margin:25px 0 12px}
 label{display:block;font-weight:600;margin:15px 0 6px}
 input,textarea,select{
-  display:block;width:100%;padding:12px;
-  margin-top:7px;border:1px solid #c9c9c9;
-  border-radius:7px;font:inherit;background:white;
+  display:block;width:100%;padding:12px;margin-top:7px;
+  border:1px solid #c9c9c9;border-radius:7px;
+  font:inherit;background:white;color:var(--navy)
 }
 textarea{resize:vertical;line-height:1.5}
-input:focus,textarea:focus,select:focus{
-  outline:2px solid var(--gold);
-}
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:8px 20px}
-button{
-  border:0;border-radius:7px;padding:12px 17px;
-  background:var(--blue);color:white;
-  cursor:pointer;font-weight:600;margin:7px 5px 7px 0;
-}
-button:hover{opacity:.88}
+button{border:0;border-radius:7px;padding:12px 17px;
+  background:var(--blue);color:white;cursor:pointer;
+  font-weight:600;margin:7px 5px 7px 0}
 button.gold{background:var(--gold);color:var(--navy)}
 button.light{background:#e9edf0;color:var(--navy)}
+button:disabled{opacity:.45;cursor:not-allowed}
 .toolbar{margin-bottom:18px}
-.departure{
-  display:grid;grid-template-columns:1fr 1fr auto;
-  align-items:end;gap:12px;padding:12px 0;
-  border-bottom:1px solid #eee;
-}
-.result{
-  padding:20px;background:#f3efe6;
-  border-left:4px solid var(--gold);
-  margin:18px 0;line-height:1.7;
-}
-.preview{
-  background:white;border:1px solid var(--gray);
-  padding:28px;margin:18px 0;
-  overflow-wrap:anywhere;
-}
-.preview .content{white-space:pre-wrap;line-height:1.6}
-.preview h3{border-bottom:1px solid #e1d6c2;padding-bottom:5px}
-.price{
+.note{font-size:13px;color:#586674;line-height:1.6}
+.departure{display:grid;grid-template-columns:1fr 1fr auto;
+  gap:12px;align-items:end;border-bottom:1px solid #eee;
+  padding:10px 0}
+.result{background:#f3efe6;border-left:4px solid var(--gold);
+  padding:20px;margin:18px 0;line-height:1.8}
+table{border-collapse:collapse;width:100%}
+th,td{border:1px solid #d8d8d8;padding:9px;text-align:left}
+th{background:#f1ede5}
+td input{margin:0}
+.table-wrap{overflow-x:auto}
+.hotels-table{min-width:650px}
+.hotels-table input{min-width:110px}
+.preview{background:white;border:1px solid var(--gray);
+  padding:30px;overflow-wrap:anywhere}
+.preview h3{border-bottom:1px solid var(--gold);
+  padding-bottom:7px}
+.content{white-space:pre-wrap;line-height:1.65}
+.check{display:flex;gap:12px;align-items:center;
+  cursor:pointer;padding:15px;border:1px solid var(--gray);
+  border-radius:8px;margin:18px 0}
+.check input{width:22px;height:22px;margin:0;
+  accent-color:var(--navy);flex-shrink:0}
+.check span{flex:1}
+.price{padding:17px 0;margin:22px 0;
   border-top:2px solid var(--gold);
-  border-bottom:2px solid var(--gold);
-  padding:15px 0;margin:20px 0;font-size:18px;
-}
-.check{display:flex;align-items:flex-start;gap:10px}
-.check input{width:auto;margin:3px 0}
-.note{font-size:13px;color:#586674;line-height:1.5}
-#notice{font-size:14px;font-weight:600}
+  border-bottom:2px solid var(--gold);line-height:1.8}
+.logo-preview{display:block;max-width:125px;
+  max-height:125px;object-fit:contain;margin:0 auto 12px}
+.print-brand{text-align:center;margin-bottom:25px}
+.print-brand h1{font-family:Georgia,serif;letter-spacing:2px}
+.status{font-size:14px;font-weight:600}
+.error{color:#a52b2b}
 @media(max-width:650px){
   .cols,.departure{grid-template-columns:1fr}
-  header{padding:15px;gap:10px}
-  header img{width:60px}
+  header img{width:65px;height:65px}
   header h1{font-size:20px}
   section{padding:18px}
 }
+#printArea{display:none}
 @media print{
   @page{size:A4;margin:15mm}
-  body{background:white}
-  header,main>.toolbar,form,button{display:none!important}
+  body{background:white;color:#0E2A47}
+  header,main{display:none!important}
   #printArea{display:block!important}
-  #printArea .preview{border:0;padding:0;margin:0}
-  .content{white-space:pre-wrap}
-  h3{break-after:avoid}
+  #printArea .preview{border:0;padding:0}
+  #printArea h3{break-after:avoid}
+  #printArea table{break-inside:auto}
+  #printArea tr{break-inside:avoid}
+  #printArea .price{break-inside:avoid}
+  #printArea img{max-width:125px}
 }
-#printArea{display:none}
 </style>
 </head>
 <body>
@@ -112,22 +107,27 @@ button.light{background:#e9edf0;color:var(--navy)}
 <div class="toolbar">
   <button type="button" id="saveDraft">Guardar borrador</button>
   <button type="button" id="loadDraft">Recuperar borrador</button>
-  <button type="button" id="newQuote" class="light">Nueva cotización</button>
-  <span id="notice" role="status"></span>
+  <button type="button" class="light" id="newQuote">
+    Nueva cotización
+  </button>
+  <span id="notice" class="status" role="status"></span>
 </div>
 
-<form id="quoteForm">
+<form id="quoteForm" autocomplete="off">
 
 <section>
-<h2>1. Datos del cliente y del viaje</h2>
+<h2>1. Datos generales de la cotización</h2>
 <div class="cols">
-<label>Nombre del cliente
+<label>Folio de cotización *
+<input name="folio" required placeholder="Folio de Traveler Club">
+</label>
+<label>Nombre del cliente *
 <input name="client" required>
 </label>
-<label>Contacto
+<label>Contacto del cliente
 <input name="contact">
 </label>
-<label>Nombre del paquete
+<label>Nombre del paquete *
 <input name="trip" required>
 </label>
 <label>Destino / países
@@ -139,8 +139,8 @@ button.light{background:#e9edf0;color:var(--navy)}
 <label>Duración
 <input name="duration" placeholder="15 días / 13 noches">
 </label>
-<label>Número de viajeros
-<input name="people" type="number" min="1" value="2">
+<label>Número de viajeros *
+<input name="people" type="number" min="1" value="2" required>
 </label>
 <label>Moneda
 <select name="currency">
@@ -149,104 +149,158 @@ button.light{background:#e9edf0;color:var(--navy)}
 <option value="EUR">EUR</option>
 </select>
 </label>
-<label>Fecha solicitada por el cliente
-<input name="requested" placeholder="Segunda quincena de mayo de 2027">
+<label>Fecha aproximada solicitada
+<input name="requested" placeholder="Segunda quincena de mayo">
 </label>
-<label>Fecha de referencia para buscar salida cercana
+<label>Fecha de referencia
 <input name="target" type="date">
 </label>
 </div>
-<label>Descripción general del viaje
+<label>Descripción del viaje
 <textarea name="description" rows="5"></textarea>
 </label>
 </section>
 
 <section>
-<h2>2. Tarifas de Traveler Club</h2>
-<p>Captura los importes por persona. Estos datos son internos y no aparecerán desglosados en el PDF.</p>
+<h2>2. Tarifas y fechas de salida</h2>
+<p class="note">
+Los costos del proveedor y el incremento comercial son internos.
+El PDF mostrará solamente el precio final de Aerenda Travel.
+</p>
 <div class="cols">
-<label>Tarifa base
-<input name="base" type="number" min="0" step="0.01" value="999">
+<label>Tarifa base por persona
+<input name="base" type="number" min="0" step=".01" value="999">
 </label>
-<label>Impuestos aéreos
-<input name="taxes" type="number" min="0" step="0.01" value="999">
+<label>Impuestos aéreos por persona
+<input name="taxes" type="number" min="0" step=".01" value="999">
 </label>
-<label>Incremento comercial Aerenda (%)
-<input name="markup" type="number" min="0" step="0.01" value="20">
+<label>Incremento comercial (%)
+<input name="markup" type="number" min="0" step=".01" value="20">
 </label>
 </div>
-
 <h3>Fechas de salida y suplementos</h3>
-<p class="note">Agrega cada salida por separado. Si Traveler Club presenta importes contradictorios para una misma fecha, verifica el precio antes de aprobar.</p>
 <div id="departures"></div>
-<button type="button" id="addDeparture">+ Agregar fecha de salida</button>
-
-<label>Fecha de salida seleccionada
+<button type="button" id="addDeparture">+ Agregar salida</button>
+<label>Salida seleccionada
 <select id="selectedDeparture"></select>
 </label>
 <div id="priceResult" class="result"></div>
 </section>
 
 <section>
-<h2>3. Información completa de Traveler Club</h2>
-<p>En los siguientes campos puedes copiar y pegar secciones completas, conservando párrafos y saltos de línea.</p>
-
+<h2>3. Itinerario</h2>
 <label>Itinerario completo, día por día
-<textarea name="itinerary" rows="15"></textarea>
+<textarea name="itinerary" rows="16"
+placeholder="Pega aquí el itinerario completo de Traveler Club"></textarea>
 </label>
-
-<label>Excursiones y actividades opcionales
-<textarea name="optional" rows="7"></textarea>
-</label>
-
-<label>Hoteles previstos o similares
-<textarea name="hotels" rows="7"></textarea>
-</label>
-
-<label>Servicios incluidos
-<textarea name="included" rows="8"></textarea>
-</label>
-
-<label>Servicios no incluidos
-<textarea name="excluded" rows="8"></textarea>
-</label>
-
-<label>Observaciones del viaje
-<textarea name="observations" rows="7"></textarea>
-</label>
-
-<label>Condiciones comerciales y de cancelación aplicables al cliente
-<textarea name="terms" rows="9"></textarea>
-</label>
-
-<label>Requisitos de documentación
-<textarea name="documents" rows="6"></textarea>
-</label>
-
-<label>Pasos para confirmar la reservación
-<textarea name="steps" rows="6"></textarea>
-</label>
-
-<label>Información adicional de Traveler Club
-<textarea name="extra" rows="10"></textarea>
-</label>
-
-<p class="note">Antes de generar el PDF, elimina cualquier información privada del proveedor, costos internos, datos bancarios ajenos o contenido que no deba compartirse con el cliente. Utiliza únicamente textos que tengas autorización para reproducir.</p>
 </section>
 
 <section>
-<h2>4. Revisión final</h2>
-<p>Todos los campos anteriores siguen siendo editables. Actualiza la vista previa después de cualquier cambio.</p>
-<button type="button" id="previewButton">Actualizar vista previa</button>
+<h2>4. Hoteles previstos o similares</h2>
+<p class="note">
+Captura cada hotel en una fila. Puedes agregar tantas filas como necesites.
+</p>
+<div class="table-wrap">
+<table class="hotels-table">
+<thead>
+<tr>
+<th>Ciudad</th>
+<th>Hotel previsto o similar</th>
+<th>Categoría</th>
+<th>Noches</th>
+<th></th>
+</tr>
+</thead>
+<tbody id="hotelsBody"></tbody>
+</table>
+</div>
+<button type="button" id="addHotel">+ Agregar hotel</button>
+<label>Observaciones sobre hoteles
+<textarea name="hotelNotes" rows="4"></textarea>
+</label>
+</section>
+
+<section>
+<h2>5. El viaje incluye</h2>
+<textarea name="included" rows="9"
+placeholder="Pega los servicios incluidos"></textarea>
+</section>
+
+<section>
+<h2>6. El viaje no incluye</h2>
+<textarea name="excluded" rows="9"
+placeholder="Pega los servicios no incluidos"></textarea>
+</section>
+
+<section>
+<h2>7. Excursiones opcionales</h2>
+<textarea name="optional" rows="9"></textarea>
+</section>
+
+<section>
+<h2>8. Notas importantes y condiciones</h2>
+<label>Notas importantes
+<textarea name="observations" rows="7"></textarea>
+</label>
+<label>Condiciones de reservación y cancelación
+<textarea name="terms" rows="9"></textarea>
+</label>
+<label>Documentación requerida
+<textarea name="documents" rows="6"></textarea>
+</label>
+<label>Información adicional
+<textarea name="extra" rows="8"></textarea>
+</label>
+</section>
+
+<section>
+<h2>9. Formas de pago autorizadas</h2>
+<p>
+<strong>A NOMBRE DE: COMERCIALIZADORA TRAVELER SA DE CV</strong>
+</p>
+<p class="note">
+Pega las cuentas que correspondan a esta cotización.
+No se trasladarán automáticamente a una cotización nueva.
+</p>
+<label>Bancos, números de cuenta, CLABE y otras formas de pago
+<textarea name="paymentAccounts" rows="12"
+placeholder="HSBC&#10;Cuenta: ...&#10;CLABE: ...&#10;&#10;BBVA&#10;Cuenta: ...&#10;CLABE: ..."></textarea>
+</label>
+<p><strong>
+Favor de poner en concepto de pago el folio de la cotización.
+</strong></p>
+</section>
+
+<section>
+<h2>10. Vista previa y aprobación</h2>
+<p>
+Revisa toda la información antes de entregar la propuesta al cliente.
+</p>
+<button type="button" id="previewButton">
+Actualizar vista previa
+</button>
 <div id="previewBox" class="preview">
 La propuesta aparecerá aquí.
 </div>
-<label class="check">
-<input type="checkbox" id="approved">
-He revisado las fechas, tarifas, contenido y condiciones de la propuesta.
+
+<label class="check" for="approved">
+  <input type="checkbox" id="approved">
+  <span>
+    He revisado las fechas, tarifas, contenido,
+    cuentas bancarias y condiciones de la propuesta.
+  </span>
 </label>
-<button type="button" class="gold" id="generatePdf">Aprobar y generar PDF</button>
-<p class="note">Se abrirá el diálogo de impresión del navegador. Selecciona «Guardar como PDF». Después podrás confirmar el guardado y comenzar otra cotización.</p>
+
+<button type="button" class="gold" id="generatePdf" disabled>
+Aprobar y generar PDF
+</button>
+<p id="approvalStatus" class="status" role="status">
+Pendiente de aprobación.
+</p>
+<p class="note">
+Se abrirá el diálogo de impresión. Selecciona
+«Guardar como PDF». Después confirma si el documento se guardó.
+</p>
 </section>
 </form>
 </main>
@@ -257,344 +311,461 @@ He revisado las fechas, tarifas, contenido y condiciones de la propuesta.
 (() => {
 "use strict";
 
-const form = document.getElementById("quoteForm");
-const departuresBox = document.getElementById("departures");
-const selectedBox = document.getElementById("selectedDeparture");
-const priceResult = document.getElementById("priceResult");
-const previewBox = document.getElementById("previewBox");
-const printArea = document.getElementById("printArea");
-const approved = document.getElementById("approved");
-const notice = document.getElementById("notice");
+const $ = id => document.getElementById(id);
+const form = $("quoteForm");
+const approved = $("approved");
+const DRAFT_KEY = "aerenda_quote_corrected_v2";
+let previewCurrent = false;
 
-const DRAFT_KEY = "aerenda_manual_quote_v1";
-
-function escapeHtml(value) {
-  return String(value ?? "").replace(/[&<>"']/g, c => ({
-    "&":"&amp;",
-    "<":"&lt;",
-    ">":"&gt;",
-    '"':"&quot;",
-    "'":"&#39;"
+function esc(v){
+  return String(v ?? "").replace(/[&<>"']/g,c=>({
+    "&":"&amp;","<":"&lt;",">":"&gt;",
+    '"':"&quot;","'":"&#39;"
   })[c]);
 }
 
-function getData() {
+function data(){
   return Object.fromEntries(new FormData(form).entries());
 }
 
-function money(amount, currency) {
-  return new Intl.NumberFormat("en-US", {
-    style:"currency",
-    currency:currency || "USD",
+function money(n,currency){
+  return new Intl.NumberFormat("en-US",{
+    style:"currency",currency:currency||"USD",
     maximumFractionDigits:2
-  }).format(amount);
+  }).format(n);
 }
 
-function getDepartures() {
-  return [...departuresBox.querySelectorAll(".departure")]
-    .map(row => ({
-      date:row.querySelector(".departureDate").value,
-      supplement:Number(row.querySelector(".departureSupplement").value) || 0
-    }))
-    .filter(item => item.date)
-    .sort((a,b) => a.date.localeCompare(b.date));
+function invalidate(){
+  previewCurrent=false;
+  approved.checked=false;
+  $("generatePdf").disabled=true;
+  $("approvalStatus").textContent=
+    "Hay cambios pendientes de revisión.";
 }
 
-function addDeparture(date="", supplement=0) {
-  const row = document.createElement("div");
-  row.className = "departure";
-  row.innerHTML = `
+function addDeparture(date="",supplement=0){
+  const row=document.createElement("div");
+  row.className="departure";
+  row.innerHTML=`
     <label>Fecha de salida
-      <input type="date" class="departureDate">
+      <input class="departureDate" type="date">
     </label>
     <label>Suplemento por persona
-      <input type="number" min="0" step="0.01" class="departureSupplement">
+      <input class="departureSupplement"
+        type="number" min="0" step=".01">
     </label>
-    <button type="button" class="light removeDeparture">Eliminar</button>
+    <button type="button" class="light removeDeparture">
+      Eliminar
+    </button>
   `;
-
-  row.querySelector(".departureDate").value = date;
-  row.querySelector(".departureSupplement").value = supplement;
-
-  row.querySelector(".removeDeparture").onclick = () => {
-    row.remove();
-    updatePrice();
+  row.querySelector(".departureDate").value=date;
+  row.querySelector(".departureSupplement").value=supplement;
+  row.querySelector(".removeDeparture").onclick=()=>{
+    row.remove();updateDepartures();invalidate();
   };
+  row.querySelectorAll("input").forEach(el=>{
+    el.addEventListener("input",()=>{
+      updateDepartures();invalidate();
+    });
+  });
+  $("departures").appendChild(row);
+  updateDepartures();
+}
 
-  row.querySelectorAll("input").forEach(input => {
-    input.addEventListener("input", updatePrice);
+function departures(){
+  return [...document.querySelectorAll(".departure")]
+    .map(row=>({
+      date:row.querySelector(".departureDate").value,
+      supplement:Number(
+        row.querySelector(".departureSupplement").value
+      )||0
+    }))
+    .filter(x=>x.date)
+    .sort((a,b)=>a.date.localeCompare(b.date));
+}
+
+function addHotel(values={}){
+  const tr=document.createElement("tr");
+  tr.innerHTML=`
+    <td><input class="hotelCity" placeholder="Ciudad"></td>
+    <td><input class="hotelName" placeholder="Hotel"></td>
+    <td><input class="hotelCategory" placeholder="Categoría"></td>
+    <td><input class="hotelNights" placeholder="Noches"></td>
+    <td><button type="button" class="light removeHotel">X</button></td>
+  `;
+  tr.querySelector(".hotelCity").value=values.city||"";
+  tr.querySelector(".hotelName").value=values.name||"";
+  tr.querySelector(".hotelCategory").value=values.category||"";
+  tr.querySelector(".hotelNights").value=values.nights||"";
+  tr.querySelector(".removeHotel").onclick=()=>{
+    tr.remove();invalidate();
+  };
+  tr.querySelectorAll("input").forEach(input=>{
+    input.addEventListener("input",invalidate);
+  });
+  $("hotelsBody").appendChild(tr);
+}
+
+function hotels(){
+  return [...$("hotelsBody").querySelectorAll("tr")]
+    .map(tr=>({
+      city:tr.querySelector(".hotelCity").value,
+      name:tr.querySelector(".hotelName").value,
+      category:tr.querySelector(".hotelCategory").value,
+      nights:tr.querySelector(".hotelNights").value
+    }))
+    .filter(h=>Object.values(h).some(v=>v.trim()));
+}
+
+function roundNine(n){
+  if(n<=0)return 0;
+  return Math.ceil((n+1)/10)*10-1;
+}
+
+function updateDepartures(){
+  const previous=$("selectedDeparture").value;
+  const list=departures();
+  const target=form.elements.target.value;
+  const select=$("selectedDeparture");
+  select.replaceChildren();
+
+  list.forEach(x=>{
+    select.add(new Option(x.date,x.date));
   });
 
-  departuresBox.appendChild(row);
-  updatePrice();
-}
-
-function roundUpToNine(amount) {
-  if (amount <= 0) return 0;
-  return Math.ceil((amount + 1) / 10) * 10 - 1;
-}
-
-function calculate() {
-  const d = getData();
-  const departures = getDepartures();
-
-  const selected = departures.find(
-    item => item.date === selectedBox.value
-  );
-
-  if (!selected) return null;
-
-  const base = Number(d.base) || 0;
-  const taxes = Number(d.taxes) || 0;
-  const markup = Number(d.markup) || 0;
-  const people = Math.max(1, Number(d.people) || 1);
-
-  const internalCost = base + taxes + selected.supplement;
-  const calculatedPrice = internalCost * (1 + markup / 100);
-  const finalPrice = roundUpToNine(calculatedPrice);
-
-  return {
-    data:d,
-    selected,
-    people,
-    finalPrice,
-    total:finalPrice * people
-  };
-}
-
-function updatePrice() {
-  const previous = selectedBox.value;
-  const departures = getDepartures();
-  const target = form.elements.target.value;
-  const currency = form.elements.currency.value;
-
-  selectedBox.replaceChildren();
-
-  departures.forEach(item => {
-    selectedBox.add(new Option(
-      item.date + " — suplemento " + money(item.supplement,currency),
-      item.date
-    ));
-  });
-
-  if (departures.length) {
-    let chosen = departures[0];
-
-    if (target) {
-      const distance = date =>
-        Math.abs(Date.parse(date + "T12:00:00") -
-                 Date.parse(target + "T12:00:00"));
-
-      chosen = departures.reduce((a,b) =>
-        distance(b.date) < distance(a.date) ? b : a
-      );
-    } else {
-      chosen = departures.find(item => item.date === previous) || chosen;
-    }
-
-    selectedBox.value = chosen.date;
+  if(!list.length){
+    showPrice();return;
   }
 
+  let selected=list.find(x=>x.date===previous)||list[0];
+
+  if(target){
+    const distance=x=>Math.abs(
+      Date.parse(x.date+"T12:00:00")-
+      Date.parse(target+"T12:00:00")
+    );
+    selected=list.reduce((a,b)=>
+      distance(b)<distance(a)?b:a
+    );
+  }
+
+  select.value=selected.date;
   showPrice();
 }
 
-function showPrice() {
-  const p = calculate();
+function calculate(){
+  const d=data();
+  const matches=departures().filter(
+    x=>x.date===$("selectedDeparture").value
+  );
+  if(matches.length!==1)return null;
 
-  if (!p) {
-    priceResult.textContent = "Agrega al menos una fecha de salida.";
-    approved.checked = false;
-    return;
-  }
+  const base=Number(d.base);
+  const taxes=Number(d.taxes);
+  const markup=Number(d.markup);
+  const people=Number(d.people);
 
-  priceResult.innerHTML = `
-    <strong>Salida:</strong> ${escapeHtml(p.selected.date)}<br>
-    <strong>Suplemento:</strong> ${money(p.selected.supplement,p.data.currency)}<br>
-    <strong>Precio final por persona:</strong> ${money(p.finalPrice,p.data.currency)}<br>
-    <strong>Total para ${p.people} viajeros:</strong> ${money(p.total,p.data.currency)}
-  `;
+  if(![base,taxes,markup,people].every(Number.isFinite)||
+    base<0||taxes<0||markup<0||people<1||
+    !Number.isInteger(people))return null;
 
-  approved.checked = false;
+  const cost=base+taxes+matches[0].supplement;
+  const price=roundNine(cost*(1+markup/100));
+
+  return {
+    d,departure:matches[0],people,
+    price,total:price*people
+  };
 }
 
-function makePreview() {
-  const p = calculate();
+function showPrice(){
+  const p=calculate();
+  if(!p){
+    $("priceResult").textContent=
+      "Completa una fecha de salida y las tarifas válidas.";
+    return;
+  }
+  $("priceResult").innerHTML=`
+    <strong>Salida:</strong> ${esc(p.departure.date)}<br>
+    <strong>Suplemento:</strong>
+    ${money(p.departure.supplement,p.d.currency)}<br>
+    <strong>Precio final por persona:</strong>
+    ${money(p.price,p.d.currency)}<br>
+    <strong>Total para ${p.people} viajeros:</strong>
+    ${money(p.total,p.d.currency)}
+  `;
+}
 
-  if (!p) {
-    alert("Agrega una fecha de salida.");
+function section(title,value){
+  if(!String(value||"").trim())return "";
+  return `<h3>${esc(title)}</h3>
+    <div class="content">${esc(value)}</div>`;
+}
+
+function validate(){
+  const d=data();
+  if(!d.folio.trim())return "Captura el folio de cotización.";
+  if(!d.client.trim())return "Captura el nombre del cliente.";
+  if(!d.trip.trim())return "Captura el nombre del paquete.";
+  if(!calculate())return "Revisa fechas, suplementos y tarifas.";
+
+  const dates=departures();
+  const duplicates=dates.some((x,i)=>
+    dates.findIndex(y=>y.date===x.date)!==i
+  );
+  if(duplicates)return "Hay fechas de salida duplicadas. Revísalas.";
+
+  if(!d.paymentAccounts.trim())
+    return "Pega las cuentas autorizadas para esta cotización.";
+
+  return "";
+}
+
+function buildPreview(){
+  const error=validate();
+  if(error){
+    alert(error);
     return false;
   }
 
-  if (!p.data.client.trim() || !p.data.trip.trim()) {
-    alert("Completa el nombre del cliente y del viaje.");
-    return false;
-  }
+  const p=calculate();
+  const d=p.d;
+  const hs=hotels();
 
-  const d = p.data;
+  const hotelTable=hs.length?`
+    <h3>Hoteles previstos o similares</h3>
+    <table>
+      <thead><tr>
+        <th>Ciudad</th><th>Hotel</th>
+        <th>Categoría</th><th>Noches</th>
+      </tr></thead>
+      <tbody>
+      ${hs.map(h=>`<tr>
+        <td>${esc(h.city)}</td>
+        <td>${esc(h.name)}</td>
+        <td>${esc(h.category)}</td>
+        <td>${esc(h.nights)}</td>
+      </tr>`).join("")}
+      </tbody>
+    </table>
+  `:"";
 
-  const sections = [
-    ["Descripción general","description"],
-    ["Itinerario completo","itinerary"],
-    ["Excursiones opcionales","optional"],
-    ["Hoteles previstos o similares","hotels"],
-    ["Servicios incluidos","included"],
-    ["Servicios no incluidos","excluded"],
-    ["Observaciones","observations"],
-    ["Condiciones aplicables","terms"],
-    ["Documentación requerida","documents"],
-    ["Cómo confirmar la reservación","steps"],
-    ["Información adicional","extra"]
-  ];
-
-  const sectionHtml = sections
-    .filter(([,key]) => d[key]?.trim())
-    .map(([title,key]) => `
-      <h3>${escapeHtml(title)}</h3>
-      <div class="content">${escapeHtml(d[key])}</div>
-    `).join("");
-
-  const html = `
-    <div style="text-align:center">
-      <img src="../assets/aerenda-logo.png"
-           alt="Aerenda Travel"
-           style="max-width:110px;max-height:100px;object-fit:contain">
-      <h1 style="color:#0E2A47;font-family:Georgia,serif">
-        AERENDA TRAVEL
-      </h1>
+  const html=`
+    <div class="print-brand">
+      <img class="logo-preview"
+        src="../assets/aerenda-logo.png"
+        alt="Aerenda Travel">
+      <h1>AERENDA TRAVEL</h1>
       <p>Viajes que te llevan más lejos</p>
       <p>Propuesta de viaje</p>
     </div>
 
-    <h2>${escapeHtml(d.trip)}</h2>
-
+    <h2>${esc(d.trip)}</h2>
+    <p><strong>Folio de cotización:</strong> ${esc(d.folio)}</p>
     <p>
-      <strong>Cliente:</strong> ${escapeHtml(d.client)}<br>
-      <strong>Destino:</strong> ${escapeHtml(d.destination)}<br>
-      <strong>Ciudades:</strong> ${escapeHtml(d.cities)}<br>
-      <strong>Duración:</strong> ${escapeHtml(d.duration)}<br>
+      <strong>Cliente:</strong> ${esc(d.client)}<br>
+      <strong>Destino:</strong> ${esc(d.destination)}<br>
+      <strong>Ciudades:</strong> ${esc(d.cities)}<br>
+      <strong>Duración:</strong> ${esc(d.duration)}<br>
       <strong>Fecha solicitada:</strong>
-      ${escapeHtml(d.requested || d.target || "Por definir")}<br>
-      <strong>Salida propuesta:</strong> ${escapeHtml(p.selected.date)}<br>
+      ${esc(d.requested||d.target||"Por definir")}<br>
+      <strong>Salida propuesta:</strong>
+      ${esc(p.departure.date)}<br>
       <strong>Viajeros:</strong> ${p.people}
     </p>
 
     <div class="price">
       <strong>Precio por persona:
-      ${money(p.finalPrice,d.currency)}</strong><br>
-      <strong>Total estimado:
-      ${money(p.total,d.currency)}</strong>
+        ${money(p.price,d.currency)}</strong><br>
+      <strong>Total para ${p.people} viajeros:
+        ${money(p.total,d.currency)}</strong>
     </div>
 
-    ${sectionHtml}
+    ${section("Descripción del viaje",d.description)}
+    ${section("Itinerario",d.itinerary)}
+    ${hotelTable}
+    ${section("Observaciones sobre hoteles",d.hotelNotes)}
+    ${section("El viaje incluye",d.included)}
+    ${section("El viaje no incluye",d.excluded)}
+    ${section("Excursiones opcionales",d.optional)}
+    ${section("Notas importantes",d.observations)}
+    ${section("Condiciones de reservación y cancelación",d.terms)}
+    ${section("Documentación requerida",d.documents)}
+    ${section("Información adicional",d.extra)}
 
-    <p style="font-size:11px;margin-top:30px;
-              border-top:1px solid #C9A96B;padding-top:12px">
+    <h3>Formas de pago autorizadas</h3>
+    <p><strong>
+      A NOMBRE DE: COMERCIALIZADORA TRAVELER SA DE CV
+    </strong></p>
+    <div class="content">${esc(d.paymentAccounts)}</div>
+
+    <p><strong>
+      Favor de poner en concepto de pago el folio
+      ${esc(d.folio)}.
+    </strong></p>
+
+    <p class="note" style="margin-top:35px">
       Propuesta sujeta a disponibilidad y reconfirmación
-      de tarifas. Esta cotización no constituye una reserva
-      ni garantiza el bloqueo de servicios.
+      de tarifas. Esta cotización no constituye una
+      reservación ni garantiza el bloqueo de servicios.
     </p>
   `;
 
-  previewBox.innerHTML = html;
-  printArea.innerHTML = `<div class="preview">${html}</div>`;
+  $("previewBox").innerHTML=html;
+  $("printArea").innerHTML=
+    `<div class="preview">${html}</div>`;
+
+  previewCurrent=true;
+  approved.checked=false;
+  $("generatePdf").disabled=true;
+  $("approvalStatus").textContent=
+    "Vista previa actualizada. Marca la casilla para aprobar.";
   return true;
 }
 
-function saveDraft() {
-  const draft = {
-    form:getData(),
-    departures:getDepartures()
+function saveDraft(){
+  const draft={
+    fields:data(),
+    departures:departures(),
+    hotels:hotels(),
+    selected:$("selectedDeparture").value
   };
-
-  try {
+  try{
     localStorage.setItem(DRAFT_KEY,JSON.stringify(draft));
-    notice.textContent = "Borrador guardado.";
-  } catch {
-    notice.textContent = "No fue posible guardar el borrador.";
+    $("notice").textContent="Borrador guardado.";
+  }catch{
+    $("notice").textContent="No se pudo guardar el borrador.";
   }
 }
 
-function loadDraft() {
-  try {
-    const draft = JSON.parse(localStorage.getItem(DRAFT_KEY));
-    if (!draft) throw new Error("Sin borrador");
+function loadDraft(){
+  try{
+    const draft=JSON.parse(localStorage.getItem(DRAFT_KEY));
+    if(!draft)throw Error("Sin borrador");
 
-    Object.entries(draft.form).forEach(([key,value]) => {
-      if (form.elements[key]) form.elements[key].value = value;
+    Object.entries(draft.fields).forEach(([k,v])=>{
+      if(form.elements[k])form.elements[k].value=v;
     });
 
-    departuresBox.replaceChildren();
+    $("departures").replaceChildren();
+    (draft.departures||[]).forEach(x=>
+      addDeparture(x.date,x.supplement)
+    );
+    if(!draft.departures?.length)addDeparture();
 
-    (draft.departures || []).forEach(item => {
-      addDeparture(item.date,item.supplement);
-    });
+    $("hotelsBody").replaceChildren();
+    (draft.hotels||[]).forEach(addHotel);
+    if(!draft.hotels?.length)addHotel();
 
-    if (!draft.departures?.length) addDeparture();
-
-    updatePrice();
-    notice.textContent = "Borrador recuperado.";
-  } catch {
-    notice.textContent = "No hay borrador disponible.";
+    updateDepartures();
+    if(draft.selected&&
+      [...$("selectedDeparture").options]
+      .some(x=>x.value===draft.selected)){
+      $("selectedDeparture").value=draft.selected;
+    }
+    showPrice();
+    invalidate();
+    $("notice").textContent="Borrador recuperado.";
+  }catch{
+    $("notice").textContent="No hay borrador disponible.";
   }
 }
 
-function resetQuote() {
+function resetQuote(){
   form.reset();
-  departuresBox.replaceChildren();
-  previewBox.textContent = "La propuesta aparecerá aquí.";
-  printArea.innerHTML = "";
+  $("departures").replaceChildren();
+  $("hotelsBody").replaceChildren();
   addDeparture();
-  approved.checked = false;
-  notice.textContent = "Listo para una nueva cotización.";
+  addHotel();
+  $("previewBox").textContent="La propuesta aparecerá aquí.";
+  $("printArea").replaceChildren();
+  invalidate();
+  $("notice").textContent="Listo para una nueva cotización.";
   window.scrollTo({top:0,behavior:"smooth"});
 }
 
-document.getElementById("addDeparture").onclick = () => addDeparture();
-document.getElementById("saveDraft").onclick = saveDraft;
-document.getElementById("loadDraft").onclick = loadDraft;
+$("addDeparture").onclick=()=>{
+  addDeparture();invalidate();
+};
+$("addHotel").onclick=()=>{
+  addHotel();invalidate();
+};
+$("saveDraft").onclick=saveDraft;
+$("loadDraft").onclick=loadDraft;
 
-document.getElementById("newQuote").onclick = () => {
-  if (confirm("¿Iniciar otra cotización? Se perderán los cambios no guardados.")) {
+$("newQuote").onclick=()=>{
+  if(confirm("¿Iniciar una nueva cotización?")){
     resetQuote();
   }
 };
 
-document.getElementById("previewButton").onclick = makePreview;
-
-form.addEventListener("input",event => {
-  if (!event.target.closest(".departure")) updatePrice();
+form.addEventListener("input",event=>{
+  if(event.target===approved)return;
+  if(!event.target.closest(".departure")){
+    if(event.target.name==="target")updateDepartures();
+    else showPrice();
+    invalidate();
+  }
 });
 
-selectedBox.addEventListener("change",showPrice);
+form.addEventListener("change",event=>{
+  if(event.target===approved)return;
+  if(event.target===$("selectedDeparture")){
+    showPrice();invalidate();
+  }
+});
 
-document.getElementById("generatePdf").onclick = () => {
-  if (!approved.checked) {
-    alert("Primero confirma que revisaste la cotización.");
+$("previewButton").onclick=buildPreview;
+
+approved.addEventListener("change",()=>{
+  if(approved.checked&&!previewCurrent){
+    approved.checked=false;
+    alert("Primero actualiza la vista previa.");
+    return;
+  }
+  $("generatePdf").disabled=!approved.checked;
+  $("approvalStatus").textContent=approved.checked
+    ?"Cotización aprobada. Puedes generar el PDF."
+    :"Pendiente de aprobación.";
+});
+
+$("generatePdf").onclick=async()=>{
+  if(!approved.checked||!previewCurrent){
+    alert("Actualiza la vista previa y aprueba la cotización.");
     return;
   }
 
-  if (!makePreview()) return;
+  const error=validate();
+  if(error){
+    alert(error);invalidate();return;
+  }
 
-  const afterPrint = () => {
-    window.removeEventListener("afterprint",afterPrint);
+  const logo=$("printArea").querySelector("img");
 
-    const saved = confirm(
-      "¿Guardaste correctamente el PDF?\n\n" +
-      "Aceptar: limpiar el formulario e iniciar otra cotización.\n" +
-      "Cancelar: conservar todos los datos."
-    );
+  if(logo&&!logo.complete){
+    await new Promise(resolve=>{
+      logo.addEventListener("load",resolve,{once:true});
+      logo.addEventListener("error",resolve,{once:true});
+      setTimeout(resolve,3000);
+    });
+  }
 
-    if (saved) {
-      localStorage.removeItem(DRAFT_KEY);
-      resetQuote();
-    }
-  };
-
-  window.addEventListener("afterprint",afterPrint,{once:true});
   window.print();
+
+  const saved=confirm(
+    "¿Guardaste correctamente el PDF?\n\n"+
+    "Aceptar: limpiar el formulario para otra cotización.\n"+
+    "Cancelar: conservar todos los datos."
+  );
+
+  if(saved){
+    localStorage.removeItem(DRAFT_KEY);
+    resetQuote();
+  }
 };
 
 addDeparture();
+addHotel();
 })();
 </script>
 </body>
