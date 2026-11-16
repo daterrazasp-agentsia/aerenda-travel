@@ -7,110 +7,113 @@
 <title>Cotizador | Aerenda Travel</title>
 <style>
 :root{
-  --navy:#0E2A47;--blue:#183B5B;--gold:#C9A96B;
-  --ivory:#FAF8F3;--gray:#D9D9D6;
+ --navy:#0E2A47;--blue:#183B5B;--gold:#C9A96B;
+ --ivory:#FAF8F3;--gray:#D9D9D6;
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--ivory);color:var(--navy);
-  font-family:Montserrat,Arial,sans-serif}
-header{background:var(--navy);color:white;padding:20px 5%;
-  display:flex;align-items:center;gap:22px}
+ font-family:Montserrat,Arial,sans-serif}
+header{background:var(--navy);color:#fff;padding:18px 5%;
+ display:flex;align-items:center;gap:20px}
 header img{width:90px;height:90px;object-fit:contain}
 header h1{margin:0;font-size:25px}
-header p{margin:8px 0;color:#e4d5b8}
-main{max-width:1100px;margin:30px auto;padding:0 18px}
+header p{color:#e4d5b8}
+main{max-width:1100px;margin:28px auto;padding:0 18px}
 section{background:white;border:1px solid #e6e1d8;
-  border-radius:12px;padding:26px;margin-bottom:24px}
-h2{font-size:21px;margin:0 0 20px;
-  border-bottom:2px solid var(--gold);padding-bottom:12px}
-h3{margin:25px 0 12px}
-label{display:block;font-weight:600;margin:15px 0 6px}
+ border-radius:12px;padding:25px;margin-bottom:24px}
+h2{font-size:21px;border-bottom:2px solid var(--gold);
+ padding-bottom:12px;margin-top:0}
+h3{color:var(--blue);margin-top:24px}
+label{display:block;font-weight:600;margin:14px 0 7px}
 input,textarea,select{
-  display:block;width:100%;padding:12px;margin-top:7px;
-  border:1px solid #c9c9c9;border-radius:7px;
-  font:inherit;background:white;color:var(--navy)
+ width:100%;padding:12px;margin-top:7px;
+ border:1px solid #c9c9c9;border-radius:7px;
+ font:inherit;color:var(--navy);background:white
 }
-textarea{resize:vertical;line-height:1.5}
+textarea{resize:vertical;line-height:1.55}
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:8px 20px}
-button{border:0;border-radius:7px;padding:12px 17px;
-  background:var(--blue);color:white;cursor:pointer;
-  font-weight:600;margin:7px 5px 7px 0}
+button{background:var(--blue);color:white;border:0;
+ border-radius:7px;padding:12px 17px;cursor:pointer;
+ font-weight:600;margin:7px 5px 7px 0}
 button.gold{background:var(--gold);color:var(--navy)}
 button.light{background:#e9edf0;color:var(--navy)}
 button:disabled{opacity:.45;cursor:not-allowed}
-.toolbar{margin-bottom:18px}
 .note{font-size:13px;color:#586674;line-height:1.6}
+.toolbar{margin-bottom:20px}
 .departure{display:grid;grid-template-columns:1fr 1fr auto;
-  gap:12px;align-items:end;border-bottom:1px solid #eee;
-  padding:10px 0}
+ align-items:end;gap:12px;padding:10px 0;
+ border-bottom:1px solid #eee}
 .result{background:#f3efe6;border-left:4px solid var(--gold);
-  padding:20px;margin:18px 0;line-height:1.8}
-table{border-collapse:collapse;width:100%}
+ padding:20px;margin:18px 0;line-height:1.8}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse}
 th,td{border:1px solid #d8d8d8;padding:9px;text-align:left}
 th{background:#f1ede5}
 td input{margin:0}
-.table-wrap{overflow-x:auto}
 .hotels-table{min-width:650px}
-.hotels-table input{min-width:110px}
 .preview{background:white;border:1px solid var(--gray);
-  padding:30px;overflow-wrap:anywhere}
+ padding:30px;overflow-wrap:anywhere}
 .preview h3{border-bottom:1px solid var(--gold);
-  padding-bottom:7px}
-.content{white-space:pre-wrap;line-height:1.65}
+ padding-bottom:7px}
+.content{white-space:pre-wrap;line-height:1.6}
 .check{display:flex;gap:12px;align-items:center;
-  cursor:pointer;padding:15px;border:1px solid var(--gray);
-  border-radius:8px;margin:18px 0}
+ cursor:pointer;padding:15px;border:1px solid var(--gray);
+ border-radius:8px;margin:18px 0}
 .check input{width:22px;height:22px;margin:0;
-  accent-color:var(--navy);flex-shrink:0}
-.check span{flex:1}
-.price{padding:17px 0;margin:22px 0;
-  border-top:2px solid var(--gold);
-  border-bottom:2px solid var(--gold);line-height:1.8}
-.logo-preview{display:block;max-width:125px;
-  max-height:125px;object-fit:contain;margin:0 auto 12px}
+ accent-color:var(--navy);flex-shrink:0}
+.price{border-top:2px solid var(--gold);
+ border-bottom:2px solid var(--gold);
+ padding:16px 0;margin:20px 0;line-height:1.8}
 .print-brand{text-align:center;margin-bottom:25px}
 .print-brand h1{font-family:Georgia,serif;letter-spacing:2px}
+.logo-preview{display:block;width:150px;height:150px;
+ max-width:100%;object-fit:contain;margin:0 auto 12px;
+ print-color-adjust:exact;-webkit-print-color-adjust:exact}
+.logo-frame{display:inline-block;padding:12px;
+ background:#0E2A47;border-radius:8px;
+ print-color-adjust:exact;-webkit-print-color-adjust:exact}
 .status{font-size:14px;font-weight:600}
-.error{color:#a52b2b}
-@media(max-width:650px){
-  .cols,.departure{grid-template-columns:1fr}
-  header img{width:65px;height:65px}
-  header h1{font-size:20px}
-  section{padding:18px}
-}
+.warning{color:#9c421b}
 #printArea{display:none}
+@media(max-width:650px){
+ .cols,.departure{grid-template-columns:1fr}
+ section{padding:18px}
+ header img{width:65px;height:65px}
+ header h1{font-size:20px}
+}
 @media print{
-  @page{size:A4;margin:15mm}
-  body{background:white;color:#0E2A47}
-  header,main{display:none!important}
-  #printArea{display:block!important}
-  #printArea .preview{border:0;padding:0}
-  #printArea h3{break-after:avoid}
-  #printArea table{break-inside:auto}
-  #printArea tr{break-inside:avoid}
-  #printArea .price{break-inside:avoid}
-  #printArea img{max-width:125px}
+ @page{size:A4;margin:15mm}
+ body{background:white;color:#0E2A47}
+ header,main{display:none!important}
+ #printArea{display:block!important}
+ #printArea .preview{border:0;padding:0;margin:0}
+ .print-brand,.price,tr{break-inside:avoid;
+  page-break-inside:avoid}
+ thead{display:table-header-group}
+ h2,h3{break-after:avoid;page-break-after:avoid}
+ .content{overflow-wrap:anywhere;white-space:pre-wrap}
+ .logo-frame{background:#0E2A47!important}
 }
 </style>
 </head>
 <body>
 
 <header>
-  <img src="../assets/aerenda-logo.png" alt="Aerenda Travel">
-  <div>
-    <h1>Cotizador Aerenda Travel</h1>
-    <p>Viajes que te llevan más lejos</p>
-  </div>
+<img src="/assets/aerenda-logo.png" alt="Aerenda Travel">
+<div>
+<h1>Cotizador Aerenda Travel</h1>
+<p>Viajes que te llevan más lejos</p>
+</div>
 </header>
 
 <main>
 <div class="toolbar">
-  <button type="button" id="saveDraft">Guardar borrador</button>
-  <button type="button" id="loadDraft">Recuperar borrador</button>
-  <button type="button" class="light" id="newQuote">
-    Nueva cotización
-  </button>
-  <span id="notice" class="status" role="status"></span>
+<button type="button" id="saveDraft">Guardar borrador</button>
+<button type="button" id="loadDraft">Recuperar borrador</button>
+<button type="button" class="light" id="newQuote">
+Nueva cotización
+</button>
+<span id="notice" class="status" role="status"></span>
 </div>
 
 <form id="quoteForm" autocomplete="off">
@@ -119,96 +122,90 @@ td input{margin:0}
 <h2>1. Datos generales de la cotización</h2>
 <div class="cols">
 <label>Folio de cotización *
-<input name="folio" required placeholder="Folio de Traveler Club">
-</label>
+<input name="folio" required></label>
 <label>Nombre del cliente *
-<input name="client" required>
-</label>
-<label>Contacto del cliente
-<input name="contact">
-</label>
+<input name="client" required></label>
+<label>Contacto
+<input name="contact"></label>
 <label>Nombre del paquete *
-<input name="trip" required>
-</label>
+<input name="trip" required></label>
 <label>Destino / países
-<input name="destination">
-</label>
+<input name="destination"></label>
 <label>Ciudades visitadas
-<input name="cities">
-</label>
+<input name="cities"></label>
 <label>Duración
-<input name="duration" placeholder="15 días / 13 noches">
-</label>
+<input name="duration" placeholder="15 días / 13 noches"></label>
 <label>Número de viajeros *
-<input name="people" type="number" min="1" value="2" required>
-</label>
+<input name="people" type="number" min="1" step="1"
+ value="2" required></label>
 <label>Moneda
 <select name="currency">
 <option value="USD">USD</option>
 <option value="MXN">MXN</option>
 <option value="EUR">EUR</option>
-</select>
-</label>
+</select></label>
 <label>Fecha aproximada solicitada
-<input name="requested" placeholder="Segunda quincena de mayo">
-</label>
+<input name="requested" placeholder="Segunda quincena de marzo"></label>
 <label>Fecha de referencia
-<input name="target" type="date">
-</label>
+<input name="target" type="date"></label>
 </div>
-<label>Descripción del viaje
-<textarea name="description" rows="5"></textarea>
-</label>
+<label>Descripción general del viaje
+<textarea name="description" rows="5"></textarea></label>
+<label>Fechas de salida disponibles (texto del proveedor)
+<textarea name="availableDates" rows="6"
+ placeholder="Marzo: 17, 24&#10;Abril: 05, 12"></textarea></label>
+<p class="note">
+Las fechas escritas en este campo son informativas.
+Para calcular precios debes capturar cada salida en la sección 2.
+</p>
 </section>
 
 <section>
 <h2>2. Tarifas y fechas de salida</h2>
 <p class="note">
-Los costos del proveedor y el incremento comercial son internos.
-El PDF mostrará solamente el precio final de Aerenda Travel.
+Importes internos por persona. No se mostrarán
+desglosados en el documento del cliente.
 </p>
 <div class="cols">
 <label>Tarifa base por persona
-<input name="base" type="number" min="0" step=".01" value="999">
-</label>
-<label>Impuestos aéreos por persona
-<input name="taxes" type="number" min="0" step=".01" value="999">
-</label>
+<input name="base" type="number" min="0" step=".01"
+ value="999" required></label>
+<label>Impuestos aéreos por persona (incluidos en el cálculo)
+<input name="taxes" type="number" min="0" step=".01"
+ value="999" required></label>
 <label>Incremento comercial (%)
-<input name="markup" type="number" min="0" step=".01" value="20">
-</label>
+<input name="markup" type="number" min="0" step=".01"
+ value="20" required></label>
 </div>
 <h3>Fechas de salida y suplementos</h3>
 <div id="departures"></div>
-<button type="button" id="addDeparture">+ Agregar salida</button>
+<button type="button" id="addDeparture">
++ Agregar salida
+</button>
 <label>Salida seleccionada
-<select id="selectedDeparture"></select>
-</label>
+<select id="selectedDeparture"></select></label>
 <div id="priceResult" class="result"></div>
+<p class="note">
+Si una fecha aparece con suplementos distintos,
+corrige la información antes de aprobar.
+</p>
 </section>
 
 <section>
 <h2>3. Itinerario</h2>
 <label>Itinerario completo, día por día
-<textarea name="itinerary" rows="16"
-placeholder="Pega aquí el itinerario completo de Traveler Club"></textarea>
-</label>
+<textarea name="itinerary" rows="17"
+ placeholder="Pega aquí el itinerario completo"></textarea></label>
 </section>
 
 <section>
 <h2>4. Hoteles previstos o similares</h2>
-<p class="note">
-Captura cada hotel en una fila. Puedes agregar tantas filas como necesites.
-</p>
 <div class="table-wrap">
 <table class="hotels-table">
 <thead>
 <tr>
-<th>Ciudad</th>
-<th>Hotel previsto o similar</th>
-<th>Categoría</th>
-<th>Noches</th>
-<th></th>
+<th>Ciudad</th><th>Hotel</th>
+<th>Categoría</th><th>Noches</th><th></th>
 </tr>
 </thead>
 <tbody id="hotelsBody"></tbody>
@@ -216,20 +213,26 @@ Captura cada hotel en una fila. Puedes agregar tantas filas como necesites.
 </div>
 <button type="button" id="addHotel">+ Agregar hotel</button>
 <label>Observaciones sobre hoteles
-<textarea name="hotelNotes" rows="4"></textarea>
-</label>
+<textarea name="hotelNotes" rows="4"></textarea></label>
+<p class="note">
+Si el proveedor no indica noches por hotel,
+puedes dejar la columna vacía. No se mostrará
+en el PDF cuando ninguna fila tenga ese dato.
+</p>
 </section>
 
 <section>
 <h2>5. El viaje incluye</h2>
-<textarea name="included" rows="9"
-placeholder="Pega los servicios incluidos"></textarea>
+<textarea name="included" rows="9"></textarea>
 </section>
 
 <section>
 <h2>6. El viaje no incluye</h2>
-<textarea name="excluded" rows="9"
-placeholder="Pega los servicios no incluidos"></textarea>
+<textarea name="excluded" rows="9"></textarea>
+<p class="note">
+Si los impuestos aéreos ya están incluidos en el precio
+calculado, no los incluyas como un cargo adicional.
+</p>
 </section>
 
 <section>
@@ -240,57 +243,57 @@ placeholder="Pega los servicios no incluidos"></textarea>
 <section>
 <h2>8. Notas importantes y condiciones</h2>
 <label>Notas importantes
-<textarea name="observations" rows="7"></textarea>
-</label>
+<textarea name="observations" rows="7"></textarea></label>
 <label>Condiciones de reservación y cancelación
-<textarea name="terms" rows="9"></textarea>
-</label>
+<textarea name="terms" rows="9"></textarea></label>
 <label>Documentación requerida
-<textarea name="documents" rows="6"></textarea>
-</label>
+<textarea name="documents" rows="6"></textarea></label>
 <label>Información adicional
-<textarea name="extra" rows="8"></textarea>
-</label>
+<textarea name="extra" rows="8"></textarea></label>
 </section>
 
 <section>
-<h2>9. Formas de pago autorizadas</h2>
-<p>
-<strong>A NOMBRE DE: COMERCIALIZADORA TRAVELER SA DE CV</strong>
-</p>
+<h2>9. Información de facturación y pagos</h2>
+<label>Condiciones de facturación y medios de pago
+<textarea name="billingNotes" rows="7"></textarea></label>
 <p class="note">
-Pega las cuentas que correspondan a esta cotización.
-No se trasladarán automáticamente a una cotización nueva.
+Revisa que las condiciones sean aplicables al cliente.
+Evita copiar datos internos o identificadores del proveedor.
 </p>
-<label>Bancos, números de cuenta, CLABE y otras formas de pago
+</section>
+
+<section>
+<h2>10. Formas de pago autorizadas</h2>
+<p><strong>
+A NOMBRE DE: COMERCIALIZADORA TRAVELER SA DE CV
+</strong></p>
+<label>Cuentas bancarias y medios de pago
 <textarea name="paymentAccounts" rows="12"
-placeholder="HSBC&#10;Cuenta: ...&#10;CLABE: ...&#10;&#10;BBVA&#10;Cuenta: ...&#10;CLABE: ..."></textarea>
-</label>
+ placeholder="Pega aquí los bancos, cuentas, CLABE y otras formas de pago autorizadas"></textarea></label>
 <p><strong>
 Favor de poner en concepto de pago el folio de la cotización.
 </strong></p>
+<p class="note">
+Las cuentas se capturan nuevamente en cada cotización.
+Verifica que correspondan a las instrucciones vigentes.
+</p>
 </section>
 
 <section>
-<h2>10. Vista previa y aprobación</h2>
-<p>
-Revisa toda la información antes de entregar la propuesta al cliente.
-</p>
+<h2>11. Vista previa y aprobación</h2>
 <button type="button" id="previewButton">
 Actualizar vista previa
 </button>
 <div id="previewBox" class="preview">
 La propuesta aparecerá aquí.
 </div>
-
 <label class="check" for="approved">
-  <input type="checkbox" id="approved">
-  <span>
-    He revisado las fechas, tarifas, contenido,
-    cuentas bancarias y condiciones de la propuesta.
-  </span>
+<input type="checkbox" id="approved">
+<span>
+He revisado las fechas, tarifas, impuestos,
+contenido, cuentas bancarias y condiciones.
+</span>
 </label>
-
 <button type="button" class="gold" id="generatePdf" disabled>
 Aprobar y generar PDF
 </button>
@@ -298,8 +301,9 @@ Aprobar y generar PDF
 Pendiente de aprobación.
 </p>
 <p class="note">
-Se abrirá el diálogo de impresión. Selecciona
-«Guardar como PDF». Después confirma si el documento se guardó.
+El navegador abrirá el diálogo de impresión.
+Selecciona «Guardar como PDF» y desactiva
+«Encabezados y pies de página» en las opciones de impresión.
 </p>
 </section>
 </form>
@@ -314,458 +318,585 @@ Se abrirá el diálogo de impresión. Selecciona
 const $ = id => document.getElementById(id);
 const form = $("quoteForm");
 const approved = $("approved");
-const DRAFT_KEY = "aerenda_quote_corrected_v2";
+const DRAFT_KEY = "aerenda_quote_v3";
+const LOGO_URL = "/assets/aerenda-logo.png";
+
 let previewCurrent = false;
 
-function esc(v){
-  return String(v ?? "").replace(/[&<>"']/g,c=>({
-    "&":"&amp;","<":"&lt;",">":"&gt;",
-    '"':"&quot;","'":"&#39;"
-  })[c]);
+function esc(value) {
+ return String(value ?? "").replace(/[&<>"']/g, c => ({
+  "&":"&amp;","<":"&lt;",">":"&gt;",
+  '"':"&quot;","'":"&#39;"
+ })[c]);
 }
 
-function data(){
-  return Object.fromEntries(new FormData(form).entries());
+function data() {
+ return Object.fromEntries(new FormData(form).entries());
 }
 
-function money(n,currency){
-  return new Intl.NumberFormat("en-US",{
-    style:"currency",currency:currency||"USD",
-    maximumFractionDigits:2
-  }).format(n);
+function money(value,currency) {
+ const code = currency || "USD";
+ const amount = new Intl.NumberFormat("en-US",{
+  minimumFractionDigits:0,
+  maximumFractionDigits:2
+ }).format(value);
+ return code+" "+amount;
 }
 
-function invalidate(){
-  previewCurrent=false;
-  approved.checked=false;
-  $("generatePdf").disabled=true;
-  $("approvalStatus").textContent=
-    "Hay cambios pendientes de revisión.";
+function invalidate() {
+ previewCurrent = false;
+ approved.checked = false;
+ $("generatePdf").disabled = true;
+ $("approvalStatus").textContent =
+  "Hay cambios pendientes de revisión.";
 }
 
-function addDeparture(date="",supplement=0){
-  const row=document.createElement("div");
-  row.className="departure";
-  row.innerHTML=`
-    <label>Fecha de salida
-      <input class="departureDate" type="date">
-    </label>
-    <label>Suplemento por persona
-      <input class="departureSupplement"
-        type="number" min="0" step=".01">
-    </label>
-    <button type="button" class="light removeDeparture">
-      Eliminar
-    </button>
-  `;
-  row.querySelector(".departureDate").value=date;
-  row.querySelector(".departureSupplement").value=supplement;
-  row.querySelector(".removeDeparture").onclick=()=>{
-    row.remove();updateDepartures();invalidate();
-  };
-  row.querySelectorAll("input").forEach(el=>{
-    el.addEventListener("input",()=>{
-      updateDepartures();invalidate();
-    });
-  });
-  $("departures").appendChild(row);
+function addDeparture(date="",supplement=0) {
+ const row=document.createElement("div");
+ row.className="departure";
+ row.innerHTML=`
+  <label>Fecha de salida
+   <input class="departureDate" type="date">
+  </label>
+  <label>Suplemento por persona
+   <input class="departureSupplement"
+    type="number" min="0" step=".01">
+  </label>
+  <button type="button" class="light removeDeparture">
+   Eliminar
+  </button>`;
+
+ row.querySelector(".departureDate").value=date;
+ row.querySelector(".departureSupplement").value=supplement;
+
+ row.querySelector(".removeDeparture").onclick=()=>{
+  row.remove();
   updateDepartures();
-}
-
-function departures(){
-  return [...document.querySelectorAll(".departure")]
-    .map(row=>({
-      date:row.querySelector(".departureDate").value,
-      supplement:Number(
-        row.querySelector(".departureSupplement").value
-      )||0
-    }))
-    .filter(x=>x.date)
-    .sort((a,b)=>a.date.localeCompare(b.date));
-}
-
-function addHotel(values={}){
-  const tr=document.createElement("tr");
-  tr.innerHTML=`
-    <td><input class="hotelCity" placeholder="Ciudad"></td>
-    <td><input class="hotelName" placeholder="Hotel"></td>
-    <td><input class="hotelCategory" placeholder="Categoría"></td>
-    <td><input class="hotelNights" placeholder="Noches"></td>
-    <td><button type="button" class="light removeHotel">X</button></td>
-  `;
-  tr.querySelector(".hotelCity").value=values.city||"";
-  tr.querySelector(".hotelName").value=values.name||"";
-  tr.querySelector(".hotelCategory").value=values.category||"";
-  tr.querySelector(".hotelNights").value=values.nights||"";
-  tr.querySelector(".removeHotel").onclick=()=>{
-    tr.remove();invalidate();
-  };
-  tr.querySelectorAll("input").forEach(input=>{
-    input.addEventListener("input",invalidate);
-  });
-  $("hotelsBody").appendChild(tr);
-}
-
-function hotels(){
-  return [...$("hotelsBody").querySelectorAll("tr")]
-    .map(tr=>({
-      city:tr.querySelector(".hotelCity").value,
-      name:tr.querySelector(".hotelName").value,
-      category:tr.querySelector(".hotelCategory").value,
-      nights:tr.querySelector(".hotelNights").value
-    }))
-    .filter(h=>Object.values(h).some(v=>v.trim()));
-}
-
-function roundNine(n){
-  if(n<=0)return 0;
-  return Math.ceil((n+1)/10)*10-1;
-}
-
-function updateDepartures(){
-  const previous=$("selectedDeparture").value;
-  const list=departures();
-  const target=form.elements.target.value;
-  const select=$("selectedDeparture");
-  select.replaceChildren();
-
-  list.forEach(x=>{
-    select.add(new Option(x.date,x.date));
-  });
-
-  if(!list.length){
-    showPrice();return;
-  }
-
-  let selected=list.find(x=>x.date===previous)||list[0];
-
-  if(target){
-    const distance=x=>Math.abs(
-      Date.parse(x.date+"T12:00:00")-
-      Date.parse(target+"T12:00:00")
-    );
-    selected=list.reduce((a,b)=>
-      distance(b)<distance(a)?b:a
-    );
-  }
-
-  select.value=selected.date;
-  showPrice();
-}
-
-function calculate(){
-  const d=data();
-  const matches=departures().filter(
-    x=>x.date===$("selectedDeparture").value
-  );
-  if(matches.length!==1)return null;
-
-  const base=Number(d.base);
-  const taxes=Number(d.taxes);
-  const markup=Number(d.markup);
-  const people=Number(d.people);
-
-  if(![base,taxes,markup,people].every(Number.isFinite)||
-    base<0||taxes<0||markup<0||people<1||
-    !Number.isInteger(people))return null;
-
-  const cost=base+taxes+matches[0].supplement;
-  const price=roundNine(cost*(1+markup/100));
-
-  return {
-    d,departure:matches[0],people,
-    price,total:price*people
-  };
-}
-
-function showPrice(){
-  const p=calculate();
-  if(!p){
-    $("priceResult").textContent=
-      "Completa una fecha de salida y las tarifas válidas.";
-    return;
-  }
-  $("priceResult").innerHTML=`
-    <strong>Salida:</strong> ${esc(p.departure.date)}<br>
-    <strong>Suplemento:</strong>
-    ${money(p.departure.supplement,p.d.currency)}<br>
-    <strong>Precio final por persona:</strong>
-    ${money(p.price,p.d.currency)}<br>
-    <strong>Total para ${p.people} viajeros:</strong>
-    ${money(p.total,p.d.currency)}
-  `;
-}
-
-function section(title,value){
-  if(!String(value||"").trim())return "";
-  return `<h3>${esc(title)}</h3>
-    <div class="content">${esc(value)}</div>`;
-}
-
-function validate(){
-  const d=data();
-  if(!d.folio.trim())return "Captura el folio de cotización.";
-  if(!d.client.trim())return "Captura el nombre del cliente.";
-  if(!d.trip.trim())return "Captura el nombre del paquete.";
-  if(!calculate())return "Revisa fechas, suplementos y tarifas.";
-
-  const dates=departures();
-  const duplicates=dates.some((x,i)=>
-    dates.findIndex(y=>y.date===x.date)!==i
-  );
-  if(duplicates)return "Hay fechas de salida duplicadas. Revísalas.";
-
-  if(!d.paymentAccounts.trim())
-    return "Pega las cuentas autorizadas para esta cotización.";
-
-  return "";
-}
-
-function buildPreview(){
-  const error=validate();
-  if(error){
-    alert(error);
-    return false;
-  }
-
-  const p=calculate();
-  const d=p.d;
-  const hs=hotels();
-
-  const hotelTable=hs.length?`
-    <h3>Hoteles previstos o similares</h3>
-    <table>
-      <thead><tr>
-        <th>Ciudad</th><th>Hotel</th>
-        <th>Categoría</th><th>Noches</th>
-      </tr></thead>
-      <tbody>
-      ${hs.map(h=>`<tr>
-        <td>${esc(h.city)}</td>
-        <td>${esc(h.name)}</td>
-        <td>${esc(h.category)}</td>
-        <td>${esc(h.nights)}</td>
-      </tr>`).join("")}
-      </tbody>
-    </table>
-  `:"";
-
-  const html=`
-    <div class="print-brand">
-      <img class="logo-preview"
-        src="../assets/aerenda-logo.png"
-        alt="Aerenda Travel">
-      <h1>AERENDA TRAVEL</h1>
-      <p>Viajes que te llevan más lejos</p>
-      <p>Propuesta de viaje</p>
-    </div>
-
-    <h2>${esc(d.trip)}</h2>
-    <p><strong>Folio de cotización:</strong> ${esc(d.folio)}</p>
-    <p>
-      <strong>Cliente:</strong> ${esc(d.client)}<br>
-      <strong>Destino:</strong> ${esc(d.destination)}<br>
-      <strong>Ciudades:</strong> ${esc(d.cities)}<br>
-      <strong>Duración:</strong> ${esc(d.duration)}<br>
-      <strong>Fecha solicitada:</strong>
-      ${esc(d.requested||d.target||"Por definir")}<br>
-      <strong>Salida propuesta:</strong>
-      ${esc(p.departure.date)}<br>
-      <strong>Viajeros:</strong> ${p.people}
-    </p>
-
-    <div class="price">
-      <strong>Precio por persona:
-        ${money(p.price,d.currency)}</strong><br>
-      <strong>Total para ${p.people} viajeros:
-        ${money(p.total,d.currency)}</strong>
-    </div>
-
-    ${section("Descripción del viaje",d.description)}
-    ${section("Itinerario",d.itinerary)}
-    ${hotelTable}
-    ${section("Observaciones sobre hoteles",d.hotelNotes)}
-    ${section("El viaje incluye",d.included)}
-    ${section("El viaje no incluye",d.excluded)}
-    ${section("Excursiones opcionales",d.optional)}
-    ${section("Notas importantes",d.observations)}
-    ${section("Condiciones de reservación y cancelación",d.terms)}
-    ${section("Documentación requerida",d.documents)}
-    ${section("Información adicional",d.extra)}
-
-    <h3>Formas de pago autorizadas</h3>
-    <p><strong>
-      A NOMBRE DE: COMERCIALIZADORA TRAVELER SA DE CV
-    </strong></p>
-    <div class="content">${esc(d.paymentAccounts)}</div>
-
-    <p><strong>
-      Favor de poner en concepto de pago el folio
-      ${esc(d.folio)}.
-    </strong></p>
-
-    <p class="note" style="margin-top:35px">
-      Propuesta sujeta a disponibilidad y reconfirmación
-      de tarifas. Esta cotización no constituye una
-      reservación ni garantiza el bloqueo de servicios.
-    </p>
-  `;
-
-  $("previewBox").innerHTML=html;
-  $("printArea").innerHTML=
-    `<div class="preview">${html}</div>`;
-
-  previewCurrent=true;
-  approved.checked=false;
-  $("generatePdf").disabled=true;
-  $("approvalStatus").textContent=
-    "Vista previa actualizada. Marca la casilla para aprobar.";
-  return true;
-}
-
-function saveDraft(){
-  const draft={
-    fields:data(),
-    departures:departures(),
-    hotels:hotels(),
-    selected:$("selectedDeparture").value
-  };
-  try{
-    localStorage.setItem(DRAFT_KEY,JSON.stringify(draft));
-    $("notice").textContent="Borrador guardado.";
-  }catch{
-    $("notice").textContent="No se pudo guardar el borrador.";
-  }
-}
-
-function loadDraft(){
-  try{
-    const draft=JSON.parse(localStorage.getItem(DRAFT_KEY));
-    if(!draft)throw Error("Sin borrador");
-
-    Object.entries(draft.fields).forEach(([k,v])=>{
-      if(form.elements[k])form.elements[k].value=v;
-    });
-
-    $("departures").replaceChildren();
-    (draft.departures||[]).forEach(x=>
-      addDeparture(x.date,x.supplement)
-    );
-    if(!draft.departures?.length)addDeparture();
-
-    $("hotelsBody").replaceChildren();
-    (draft.hotels||[]).forEach(addHotel);
-    if(!draft.hotels?.length)addHotel();
-
-    updateDepartures();
-    if(draft.selected&&
-      [...$("selectedDeparture").options]
-      .some(x=>x.value===draft.selected)){
-      $("selectedDeparture").value=draft.selected;
-    }
-    showPrice();
-    invalidate();
-    $("notice").textContent="Borrador recuperado.";
-  }catch{
-    $("notice").textContent="No hay borrador disponible.";
-  }
-}
-
-function resetQuote(){
-  form.reset();
-  $("departures").replaceChildren();
-  $("hotelsBody").replaceChildren();
-  addDeparture();
-  addHotel();
-  $("previewBox").textContent="La propuesta aparecerá aquí.";
-  $("printArea").replaceChildren();
   invalidate();
-  $("notice").textContent="Listo para una nueva cotización.";
-  window.scrollTo({top:0,behavior:"smooth"});
+ };
+
+ row.querySelectorAll("input").forEach(input=>{
+  input.addEventListener("input",()=>{
+   updateDepartures();
+   invalidate();
+  });
+ });
+
+ $("departures").appendChild(row);
+ updateDepartures();
+}
+
+function departures() {
+ return [...document.querySelectorAll(".departure")]
+  .map(row=>({
+   date:row.querySelector(".departureDate").value,
+   supplement:Number(
+    row.querySelector(".departureSupplement").value
+   )
+  }))
+  .filter(x=>x.date)
+  .sort((a,b)=>a.date.localeCompare(b.date));
+}
+
+function addHotel(values={}) {
+ const tr=document.createElement("tr");
+ tr.innerHTML=`
+  <td><input class="hotelCity" placeholder="Ciudad"></td>
+  <td><input class="hotelName" placeholder="Hotel"></td>
+  <td><input class="hotelCategory" placeholder="Categoría"></td>
+  <td><input class="hotelNights" placeholder="Noches"></td>
+  <td><button type="button" class="light removeHotel">X</button></td>`;
+
+ tr.querySelector(".hotelCity").value=values.city||"";
+ tr.querySelector(".hotelName").value=values.name||"";
+ tr.querySelector(".hotelCategory").value=values.category||"";
+ tr.querySelector(".hotelNights").value=values.nights||"";
+
+ tr.querySelector(".removeHotel").onclick=()=>{
+  tr.remove();
+  invalidate();
+ };
+
+ tr.querySelectorAll("input").forEach(input=>{
+  input.addEventListener("input",invalidate);
+ });
+
+ $("hotelsBody").appendChild(tr);
+}
+
+function hotels() {
+ return [...$("hotelsBody").querySelectorAll("tr")]
+  .map(tr=>({
+   city:tr.querySelector(".hotelCity").value,
+   name:tr.querySelector(".hotelName").value,
+   category:tr.querySelector(".hotelCategory").value,
+   nights:tr.querySelector(".hotelNights").value
+  }))
+  .filter(h=>Object.values(h).some(v=>v.trim()));
+}
+
+function roundNine(value) {
+ if(value<=0)return 0;
+ return Math.ceil((value+1)/10)*10-1;
+}
+
+function updateDepartures() {
+ const previous=$("selectedDeparture").value;
+ const list=departures();
+ const target=form.elements.target.value;
+ const select=$("selectedDeparture");
+
+ select.replaceChildren();
+
+ list.forEach(x=>{
+  select.add(new Option(x.date,x.date));
+ });
+
+ if(!list.length){
+  showPrice();
+  return;
+ }
+
+ let chosen=list.find(x=>x.date===previous)||list[0];
+
+ if(target){
+  const distance=x=>Math.abs(
+   Date.parse(x.date+"T12:00:00")-
+   Date.parse(target+"T12:00:00")
+  );
+
+  chosen=list.reduce((a,b)=>
+   distance(b)<distance(a)?b:a
+  );
+ }
+
+ select.value=chosen.date;
+ showPrice();
+}
+
+function calculate() {
+ const d=data();
+ const list=departures();
+
+ const duplicate=list.some((x,i)=>
+  list.findIndex(y=>y.date===x.date)!==i
+ );
+
+ if(duplicate)return null;
+
+ const matches=list.filter(
+  x=>x.date===$("selectedDeparture").value
+ );
+
+ if(matches.length!==1)return null;
+
+ const base=Number(d.base);
+ const taxes=Number(d.taxes);
+ const markup=Number(d.markup);
+ const people=Number(d.people);
+
+ if(
+  ![base,taxes,markup,people,
+    matches[0].supplement].every(Number.isFinite) ||
+  base<0 || taxes<0 || markup<0 ||
+  matches[0].supplement<0 ||
+  people<1 || !Number.isInteger(people)
+ )return null;
+
+ const cost=base+taxes+matches[0].supplement;
+ const price=roundNine(cost*(1+markup/100));
+
+ return {
+  d,
+  departure:matches[0],
+  people,
+  price,
+  total:price*people
+ };
+}
+
+function showPrice() {
+ const p=calculate();
+
+ if(!p){
+  $("priceResult").textContent=
+   "Captura tarifas válidas y una fecha de salida única.";
+  return;
+ }
+
+ $("priceResult").innerHTML=`
+  <strong>Salida:</strong> ${esc(p.departure.date)}<br>
+  <strong>Suplemento:</strong>
+   ${money(p.departure.supplement,p.d.currency)}<br>
+  <strong>Precio final por persona:</strong>
+   ${money(p.price,p.d.currency)}<br>
+  <strong>Total para ${p.people} viajeros:</strong>
+   ${money(p.total,p.d.currency)}
+ `;
+}
+
+function section(title,value) {
+ if(!String(value||"").trim())return "";
+ return `<h3>${esc(title)}</h3>
+  <div class="content">${esc(value)}</div>`;
+}
+
+function validate() {
+ const d=data();
+
+ if(!d.folio.trim())
+  return "Captura el folio de cotización.";
+
+ if(!d.client.trim())
+  return "Captura el nombre del cliente.";
+
+ if(!d.trip.trim())
+  return "Captura el nombre del paquete.";
+
+ if(!calculate())
+  return "Revisa tarifas, fechas y suplementos duplicados.";
+
+ if(!d.paymentAccounts.trim())
+  return "Pega las cuentas de pago autorizadas.";
+
+ const excluded=d.excluded||"";
+
+ if(/impuestos?\s+a[eé]reos?/i.test(excluded)){
+  return "El apartado 'El viaje no incluye' menciona impuestos aéreos, pero estos ya están incluidos en el precio. Corrige el texto.";
+ }
+
+ const forbidden=[
+  /traveler\s*(club|group)/i,
+  /sistema-update\.traveler/i
+ ];
+
+ const publicFields=[
+  "description","availableDates","itinerary",
+  "included","excluded","optional","observations",
+  "terms","documents","extra","billingNotes",
+  "hotelNotes"
+ ];
+
+ for(const field of publicFields){
+  if(forbidden.some(pattern=>pattern.test(d[field]||""))){
+   return "Revisa referencias comerciales al proveedor en los textos antes de generar el PDF.";
+  }
+ }
+
+ return "";
+}
+
+function buildPreview() {
+ const error=validate();
+
+ if(error){
+  alert(error);
+  return false;
+ }
+
+ const p=calculate();
+ const d=p.d;
+ const hs=hotels();
+ const showNights=hs.some(h=>h.nights.trim());
+
+ const hotelTable=hs.length?`
+  <h3>Hoteles previstos o similares</h3>
+  <table class="hotels-table">
+   <thead><tr>
+    <th>Ciudad</th>
+    <th>Hotel</th>
+    <th>Categoría</th>
+    ${showNights?"<th>Noches</th>":""}
+   </tr></thead>
+   <tbody>
+    ${hs.map(h=>`<tr>
+     <td>${esc(h.city)}</td>
+     <td>${esc(h.name)}</td>
+     <td>${esc(h.category)}</td>
+     ${showNights?`<td>${esc(h.nights)}</td>`:""}
+    </tr>`).join("")}
+   </tbody>
+  </table>
+ `:"";
+
+ const html=`
+  <div class="print-brand">
+   <div class="logo-frame">
+    <img class="logo-preview"
+     src="${LOGO_URL}"
+     alt="Aerenda Travel">
+   </div>
+   <h1>AERENDA TRAVEL</h1>
+   <p>Viajes que te llevan más lejos</p>
+   <p>Propuesta de viaje</p>
+  </div>
+
+  <h2>${esc(d.trip)}</h2>
+
+  <p>
+   <strong>Folio de cotización:</strong>
+   ${esc(d.folio)}
+  </p>
+
+  <p>
+   <strong>Cliente:</strong> ${esc(d.client)}<br>
+   <strong>Destino:</strong> ${esc(d.destination)}<br>
+   <strong>Ciudades:</strong> ${esc(d.cities)}<br>
+   <strong>Duración:</strong> ${esc(d.duration)}<br>
+   <strong>Fecha solicitada:</strong>
+    ${esc(d.requested||d.target||"Por definir")}<br>
+   <strong>Salida propuesta:</strong>
+    ${esc(p.departure.date)}<br>
+   <strong>Viajeros:</strong> ${p.people}
+  </p>
+
+  <div class="price">
+   <strong>Precio final por persona:
+    ${money(p.price,d.currency)}</strong><br>
+   <strong>Total para ${p.people} viajeros:
+    ${money(p.total,d.currency)}</strong>
+  </div>
+
+  <p class="note">
+   El precio final incluye tarifa base,
+   impuestos aéreos y suplemento correspondiente
+   a la fecha de salida seleccionada.
+  </p>
+
+  ${section("Descripción general del viaje",d.description)}
+  ${section("Fechas de salida disponibles",d.availableDates)}
+  ${section("Itinerario",d.itinerary)}
+  ${hotelTable}
+  ${section("Observaciones sobre hoteles",d.hotelNotes)}
+  ${section("El viaje incluye",d.included)}
+  ${section("El viaje no incluye",d.excluded)}
+  ${section("Excursiones opcionales",d.optional)}
+  ${section("Notas importantes",d.observations)}
+  ${section("Condiciones de reservación y cancelación",d.terms)}
+  ${section("Documentación requerida",d.documents)}
+  ${section("Información adicional",d.extra)}
+  ${section("Información de facturación y pagos",d.billingNotes)}
+
+  <h3>Formas de pago autorizadas</h3>
+  <p><strong>
+   A NOMBRE DE: COMERCIALIZADORA TRAVELER SA DE CV
+  </strong></p>
+
+  <div class="content">${esc(d.paymentAccounts)}</div>
+
+  <p><strong>
+   Favor de poner en concepto de pago
+   el folio ${esc(d.folio)}.
+  </strong></p>
+
+  <p class="note" style="margin-top:35px">
+   Propuesta sujeta a disponibilidad y
+   reconfirmación de tarifas. Esta cotización
+   no constituye una reservación ni garantiza
+   el bloqueo de servicios.
+  </p>
+ `;
+
+ $("previewBox").innerHTML=html;
+ $("printArea").innerHTML=
+  `<div class="preview">${html}</div>`;
+
+ previewCurrent=true;
+ approved.checked=false;
+ $("generatePdf").disabled=true;
+ $("approvalStatus").textContent=
+  "Vista previa actualizada. Marca la casilla para aprobar.";
+
+ return true;
+}
+
+function saveDraft() {
+ const draft={
+  fields:data(),
+  departures:departures(),
+  hotels:hotels(),
+  selected:$("selectedDeparture").value
+ };
+
+ try{
+  localStorage.setItem(DRAFT_KEY,JSON.stringify(draft));
+  $("notice").textContent="Borrador guardado.";
+ }catch{
+  $("notice").textContent="No se pudo guardar el borrador.";
+ }
+}
+
+function loadDraft() {
+ try{
+  const draft=JSON.parse(localStorage.getItem(DRAFT_KEY));
+  if(!draft)throw Error("Sin borrador");
+
+  Object.entries(draft.fields).forEach(([k,v])=>{
+   if(form.elements[k])form.elements[k].value=v;
+  });
+
+  $("departures").replaceChildren();
+  (draft.departures||[]).forEach(x=>
+   addDeparture(x.date,x.supplement)
+  );
+  if(!draft.departures?.length)addDeparture();
+
+  $("hotelsBody").replaceChildren();
+  (draft.hotels||[]).forEach(addHotel);
+  if(!draft.hotels?.length)addHotel();
+
+  updateDepartures();
+
+  if(draft.selected &&
+   [...$("selectedDeparture").options].some(
+    x=>x.value===draft.selected
+   )){
+   $("selectedDeparture").value=draft.selected;
+  }
+
+  showPrice();
+  invalidate();
+  $("notice").textContent="Borrador recuperado.";
+ }catch{
+  $("notice").textContent="No hay borrador disponible.";
+ }
+}
+
+function resetQuote() {
+ form.reset();
+ $("departures").replaceChildren();
+ $("hotelsBody").replaceChildren();
+
+ addDeparture();
+ addHotel();
+
+ $("previewBox").textContent=
+  "La propuesta aparecerá aquí.";
+
+ $("printArea").replaceChildren();
+ invalidate();
+
+ $("notice").textContent=
+  "Listo para una nueva cotización.";
+
+ window.scrollTo({top:0,behavior:"smooth"});
 }
 
 $("addDeparture").onclick=()=>{
-  addDeparture();invalidate();
+ addDeparture();
+ invalidate();
 };
+
 $("addHotel").onclick=()=>{
-  addHotel();invalidate();
+ addHotel();
+ invalidate();
 };
+
 $("saveDraft").onclick=saveDraft;
 $("loadDraft").onclick=loadDraft;
 
 $("newQuote").onclick=()=>{
-  if(confirm("¿Iniciar una nueva cotización?")){
-    resetQuote();
-  }
+ if(confirm("¿Iniciar una nueva cotización?")){
+  resetQuote();
+ }
 };
 
 form.addEventListener("input",event=>{
-  if(event.target===approved)return;
-  if(!event.target.closest(".departure")){
-    if(event.target.name==="target")updateDepartures();
-    else showPrice();
-    invalidate();
+ if(event.target===approved)return;
+
+ if(!event.target.closest(".departure")){
+  if(event.target.name==="target"){
+   updateDepartures();
+  }else{
+   showPrice();
   }
+  invalidate();
+ }
 });
 
 form.addEventListener("change",event=>{
-  if(event.target===approved)return;
-  if(event.target===$("selectedDeparture")){
-    showPrice();invalidate();
-  }
+ if(event.target===approved)return;
+
+ if(event.target===$("selectedDeparture")){
+  showPrice();
+  invalidate();
+ }
 });
 
 $("previewButton").onclick=buildPreview;
 
 approved.addEventListener("change",()=>{
-  if(approved.checked&&!previewCurrent){
-    approved.checked=false;
-    alert("Primero actualiza la vista previa.");
-    return;
-  }
-  $("generatePdf").disabled=!approved.checked;
-  $("approvalStatus").textContent=approved.checked
-    ?"Cotización aprobada. Puedes generar el PDF."
-    :"Pendiente de aprobación.";
+ if(approved.checked&&!previewCurrent){
+  approved.checked=false;
+  alert("Primero actualiza la vista previa.");
+  return;
+ }
+
+ $("generatePdf").disabled=!approved.checked;
+
+ $("approvalStatus").textContent=approved.checked
+  ?"Cotización aprobada. Puedes generar el PDF."
+  :"Pendiente de aprobación.";
 });
 
+function waitForImage(img){
+ if(!img)return Promise.resolve(false);
+ if(img.complete)return Promise.resolve(img.naturalWidth>0);
+
+ return new Promise(resolve=>{
+  const done=ok=>{
+   img.removeEventListener("load",onLoad);
+   img.removeEventListener("error",onError);
+   resolve(ok);
+  };
+  const onLoad=()=>done(true);
+  const onError=()=>done(false);
+  img.addEventListener("load",onLoad,{once:true});
+  img.addEventListener("error",onError,{once:true});
+ });
+}
+
 $("generatePdf").onclick=async()=>{
-  if(!approved.checked||!previewCurrent){
-    alert("Actualiza la vista previa y aprueba la cotización.");
-    return;
-  }
+ if(!approved.checked||!previewCurrent){
+  alert("Actualiza la vista previa y aprueba la cotización.");
+  return;
+ }
 
-  const error=validate();
-  if(error){
-    alert(error);invalidate();return;
-  }
+ const error=validate();
+ if(error){
+  alert(error);
+  invalidate();
+  return;
+ }
 
-  const logo=$("printArea").querySelector("img");
+ const logo=$("printArea").querySelector("img");
+ const loaded=await waitForImage(logo);
 
-  if(logo&&!logo.complete){
-    await new Promise(resolve=>{
-      logo.addEventListener("load",resolve,{once:true});
-      logo.addEventListener("error",resolve,{once:true});
-      setTimeout(resolve,3000);
-    });
-  }
-
-  window.print();
-
-  const saved=confirm(
-    "¿Guardaste correctamente el PDF?\n\n"+
-    "Aceptar: limpiar el formulario para otra cotización.\n"+
-    "Cancelar: conservar todos los datos."
+ if(!loaded){
+  const continueWithoutLogo=confirm(
+   "El logotipo no se pudo cargar.\n"+
+   "¿Deseas continuar con la impresión sin el logotipo?"
   );
+  if(!continueWithoutLogo)return;
+ }
 
-  if(saved){
-    localStorage.removeItem(DRAFT_KEY);
-    resetQuote();
-  }
+ window.print();
+
+ const saved=confirm(
+  "¿Guardaste correctamente el PDF?\n\n"+
+  "Aceptar: limpiar el formulario.\n"+
+  "Cancelar: conservar todos los datos."
+ );
+
+ if(saved){
+  localStorage.removeItem(DRAFT_KEY);
+  resetQuote();
+ }
 };
 
 addDeparture();
 addHotel();
+
 })();
 </script>
 </body>
